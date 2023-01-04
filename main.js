@@ -1,0 +1,1 @@
+(()=>{"use strict";const o={title:"Eat",description:"Eat a burger",dueDate:"1/4/23",priority:"ASAP",completed:!1},t=(()=>{let o=[];return{getToDoList:()=>o,addToDoList:t=>o.push(t),removetoDoList:t=>{const e=o.indexOf(t);o=o.splice(e,1)},moveToDoinList:(t,e)=>{const s=o[t];o=o.splice(e,0,s)}}})();t.addToDoList(o),console.log(o),console.log(t.getToDoList())})();
