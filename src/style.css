@@ -3,6 +3,16 @@
     color: black;
 }
 
+#form-box{
+    position: absolute;
+    left: 25vw;
+    top: 15vh;
+    height: 75vh;
+    width: 50vw;
+    background-color: white;
+
+}
+
 body {
     display: grid;
     grid-template-rows: 1fr 8fr;
@@ -20,6 +30,11 @@ body {
     align-items: center;
     gap: 10px;
     padding-left: 15px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
 }
 
 #side-bar {

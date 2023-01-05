@@ -8,3 +8,11 @@ project.addToDoList(testToDo);
 console.log(project.toDoList[0]);
 project.removeToDoList(testToDo);
 console.log(project.toDoList[0]);
+
+const addButton = document.querySelector('div#side-bar button');
+addButton.addEventListener('click', () => {
+  const formBox = document.createElement('div');
+  const body = document.querySelector('body');
+  formBox.id = 'form-box';
+  body.appendChild(formBox);
+});
