@@ -98,3 +98,9 @@ a {
     background-color: red;
     border-style: none;
 }
+
+#form-box .side-bar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
