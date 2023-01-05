@@ -8,6 +8,9 @@ export default function populateForm(form) {
     input.id = nameOfLabel;
     input.type = typeOfInput;
     label.innerHTML = nameOfLabel.charAt(0).toUpperCase() + nameOfLabel.slice(1);
+    if (nameOfLabel === 'title' || nameOfLabel === 'due-date') {
+      input.setAttribute('required', '');
+    }
     label.appendChild(input);
 
     htmlList.push(label);
@@ -24,6 +27,11 @@ export default function populateForm(form) {
       radioInput.value = radioInputValues[i];
       radioInput.name = radioInputName;
       radioInput.type = 'radio';
+      if (radioInputName === 'priority') {
+        radioInput.setAttribute('required', '');
+      } else if (radioInputName === 'completed') {
+        radioInput.checked = false;
+      }
 
       labelInputDiv.appendChild(radioInput);
       labelInputDiv.appendChild(label);
@@ -33,7 +41,7 @@ export default function populateForm(form) {
 
   createNotRadioInputHTML('title', 'text');
   createNotRadioInputHTML('description', 'textarea');
-  createNotRadioInputHTML('due date', 'date');
+  createNotRadioInputHTML('due-date', 'date');
 
   const priorityLabel = document.createElement('div');
   priorityLabel.innerHTML = 'Priority';
@@ -50,6 +58,7 @@ export default function populateForm(form) {
 
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';
+  submitButton.id = 'submit';
   submitButton.innerHTML = 'Submit';
   htmlList.push(submitButton);
 
@@ -58,5 +67,7 @@ export default function populateForm(form) {
   }
 
   const finalForm = form;
+  finalForm.id = 'todo';
+
   return finalForm;
 }

@@ -1,7 +1,14 @@
 /* eslint-disable no-param-reassign */
 export default function createToDo() {
-  const ToDo = (title, description, dueDate, priority, completed, project = null) => ({
-    title, description, dueDate, priority, completed, project,
+  const ToDo = (
+    title,
+    dueDate,
+    priority,
+    description = undefined,
+    completed = false,
+    projectName = undefined,
+  ) => ({
+    title, description, dueDate, priority, completed, projectName,
   });
   return ToDo;
 }

@@ -1,5 +1,10 @@
 import populateForm from './todo-form-tab';
 
+function deleteFormBox() {
+  const formBox = document.querySelector('div#form-box');
+  const body = document.querySelector('body');
+  body.removeChild(formBox);
+}
 const formContents = (formHeader, formSideBar, formMainContent) => {
   function populateFormHeader() {
     const formTitle = document.createElement('h1');
@@ -8,21 +13,20 @@ const formContents = (formHeader, formSideBar, formMainContent) => {
 
     const formExitButton = document.createElement('button');
     formExitButton.innerHTML = 'x';
-    formExitButton.addEventListener('click', () => {
-      const formBox = document.querySelector('div#form-box');
-      const body = document.querySelector('body');
-      body.removeChild(formBox);
-    });
+    formExitButton.addEventListener('click', deleteFormBox);
     formHeader.appendChild(formExitButton);
     return formHeader;
   }
   function populateFormSideBar() {
     const ul = document.createElement('ul');
-    const sideBarNames = ['// To-Do', 'Project', 'Note'];
+    const sideBarNames = ['To-Do', 'Project', 'Note'];
 
     for (let i = 0; i < sideBarNames.length; i += 1) {
       const li = document.createElement('li');
       const a = document.createElement('a');
+      if (sideBarNames[i] === 'To-Do') {
+        a.classList.add('current');
+      }
       a.innerHTML = sideBarNames[i];
       a.href = '#';
       li.appendChild(a);
