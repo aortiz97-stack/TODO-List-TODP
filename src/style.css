@@ -3,6 +3,10 @@
     color: black;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 #form-box{
     position: absolute;
     left: 25vw;
@@ -72,4 +76,25 @@ a {
     grid-row: 2 / -1;
     grid-column: 2 / -1;
     background-color: yellow;
+}
+
+#form-box .header {
+    position: relative;
+    font-size: 0.75rem;
+}
+
+#form-box h1 {
+    margin: 0;
+}
+
+#form-box .header button {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: red;
+    border-style: none;
 }
