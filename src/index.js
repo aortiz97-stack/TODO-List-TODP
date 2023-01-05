@@ -17,6 +17,11 @@ const formContents = (formHeader, formSideBar, formMainContent) => {
 
     const formExitButton = document.createElement('button');
     formExitButton.innerHTML = 'x';
+    formExitButton.addEventListener('click', () => {
+      const formBox = document.querySelector('div#form-box');
+      const body = document.querySelector('body');
+      body.removeChild(formBox);
+    });
     formHeader.appendChild(formExitButton);
     return formHeader;
   }
