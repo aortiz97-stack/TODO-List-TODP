@@ -9,10 +9,22 @@ console.log(project.toDoList[0]);
 project.removeToDoList(testToDo);
 console.log(project.toDoList[0]);
 
-const addButton = document.querySelector('div#side-bar button');
+const addButton = document.querySelector('div.side-bar button');
 addButton.addEventListener('click', () => {
   const formBox = document.createElement('div');
   const body = document.querySelector('body');
   formBox.id = 'form-box';
+
+  const formHeader = document.createElement('div');
+  formHeader.classList.add('header');
+  const formSideBar = document.createElement('div');
+  formSideBar.classList.add('side-bar');
+  const formMainContent = document.createElement('div');
+  formMainContent.classList.add('main-content');
+
+  formBox.appendChild(formHeader);
+  formBox.appendChild(formSideBar);
+  formBox.appendChild(formMainContent);
+
   body.appendChild(formBox);
 });
