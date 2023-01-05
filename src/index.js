@@ -9,12 +9,7 @@ console.log(project.toDoList[0]);
 project.removeToDoList(testToDo);
 console.log(project.toDoList[0]);
 
-const addButton = document.querySelector('div.side-bar button');
-addButton.addEventListener('click', () => {
-  const formBox = document.createElement('div');
-  const body = document.querySelector('body');
-  formBox.id = 'form-box';
-
+function createBasicGrid(formBox) {
   const formHeader = document.createElement('div');
   formHeader.classList.add('header');
   const formSideBar = document.createElement('div');
@@ -26,5 +21,15 @@ addButton.addEventListener('click', () => {
   formBox.appendChild(formSideBar);
   formBox.appendChild(formMainContent);
 
+  return formBox;
+}
+
+const addButton = document.querySelector('div.side-bar button');
+addButton.addEventListener('click', () => {
+  const body = document.querySelector('body');
+
+  let formBox = document.createElement('div');
+  formBox.id = 'form-box';
+  formBox = createBasicGrid(formBox);
   body.appendChild(formBox);
 });
