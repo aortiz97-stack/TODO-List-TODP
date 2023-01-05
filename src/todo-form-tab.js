@@ -48,6 +48,11 @@ export default function populateForm(form) {
   createRadioInputHTML(['completed'], 'completed');
   createNotRadioInputHTML('project', 'text');
 
+  const submitButton = document.createElement('button');
+  submitButton.type = 'submit';
+  submitButton.innerHTML = 'Submit';
+  htmlList.push(submitButton);
+
   for (let i = 0; i < htmlList.length; i += 1) {
     form.appendChild(htmlList[i]);
   }
