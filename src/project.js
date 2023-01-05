@@ -9,7 +9,6 @@ export default function createProject() {
     const removeToDoList = (toDo) => {
       const index = toDoList.indexOf(toDo);
       toDoList.splice(index, 1);
-      console.log(`what: ${toDoList}`);
     };
     const moveToDoinList = (oldIndex, newIndex) => {
       const toMoveElement = toDoList[oldIndex];
