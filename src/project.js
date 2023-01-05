@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 export default function createProject() {
   const Project = (projectName) => {
     const toDoList = [];
