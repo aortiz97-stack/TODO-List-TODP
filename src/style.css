@@ -33,7 +33,7 @@ body {
 .header {
     grid-row: 1 / 2;
     grid-column: 1 / -1;
-    background-color: red;
+    background-color: #C8A2C8;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -48,7 +48,7 @@ h1 {
 .side-bar {
     grid-row: 2 / -1;
     grid-column: 1 / 2;
-    background-color: blue;
+    background-color: #E6E6FA;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -75,7 +75,7 @@ a {
 .main-content {
     grid-row: 2 / -1;
     grid-column: 2 / -1;
-    background-color: yellow;
+    background-color: white;
 }
 
 #form-box .header {
@@ -95,7 +95,7 @@ a {
     position: absolute;
     right: 0;
     top: 0;
-    background-color: red;
+    background-color: #C8A2C8;
     border-style: none;
 }
 
