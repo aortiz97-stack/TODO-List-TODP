@@ -1,22 +1,23 @@
 export default function createProject() {
   const Project = () => {
-    let toDoList = [];
+    const toDoList = [];
 
     const getToDoList = () => toDoList;
 
     const addToDoList = (toDo) => toDoList.push(toDo);
 
-    const removetoDoList = (toDo) => {
+    const removeToDoList = (toDo) => {
       const index = toDoList.indexOf(toDo);
-      toDoList = toDoList.splice(index, 1);
+      toDoList.splice(index, 1);
+      console.log(`what: ${toDoList}`);
     };
     const moveToDoinList = (oldIndex, newIndex) => {
       const toMoveElement = toDoList[oldIndex];
-      toDoList = toDoList.splice(newIndex, 0, toMoveElement);
+      toDoList.splice(newIndex, 0, toMoveElement);
     };
 
     return {
-      getToDoList, addToDoList, removetoDoList, moveToDoinList,
+      getToDoList, addToDoList, removeToDoList, moveToDoinList,
     };
   };
 
