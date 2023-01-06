@@ -2,50 +2,44 @@ import createToDo from './todo';
 import createProject from './project';
 import createFormLayout from './create-form-layout';
 
+const body = document.querySelector('body');
 const addButton = document.querySelector('div.side-bar button');
 addButton.addEventListener('click', () => {
-  const body = document.querySelector('body');
-
   let formBox = document.createElement('div');
   formBox.id = 'form-box';
   formBox = createFormLayout(formBox);
   body.appendChild(formBox);
 
-  const form = document.querySelector('form');
+  const form = document.querySelector('.form');
   form.addEventListener('click', (e) => {
-    console.log(`e.target: ${e.target.innerHTML}`);
     if (e.target.innerHTML === 'Submit') {
       if (form.id === 'todo') {
-        const titleInput = (document.querySelector('input#title')).value;
-        console.log(`titleInPUT: ${titleInput}`);
-        const dueDateInput = document.querySelector('input#due-date');
-        const priorityInput = document.querySelector('input[name = "priority"]');
-        const descriptionInput = document.querySelector('input#description');
-        const completedInput = document.querySelector('input#completed');
-        const projectNameInput = document.querySelector('input#project');
-        const todo = (createToDo())(
-          titleInput,
-          dueDateInput,
-          priorityInput,
-          descriptionInput,
-          completedInput,
-          projectNameInput,
-        );
+        const title = (document.querySelector('input#title')).value;
+        const dueDate = (document.querySelector('input#due-date')).value;
+        const priority = (document.querySelector('input[name = "priority"]')).value;
+        const description = (document.querySelector('input#description'));
+        const status = (document.querySelector('input#completed')).value;
+        const projectName = (document.querySelector('input#project')).value;
 
-        console.log(`TODO: ${todo}`);
+        const todo = (createToDo())(title, dueDate, priority, description, status, projectName);
 
         const todoDiv = document.createElement('div');
-        const titleDiv = document.createElement('div');
-        const dueDateDiv = document.createElement('div');
         todoDiv.classList.add('todo-object');
-        todoDiv.classList.add(`${todo.completedInput}-priority`);
-        titleDiv.innerHTML = todo.title;
-        dueDateDiv.innerHTML = todo.dueDate.value;
-        todoDiv.appendChild(titleDiv);
-        todoDiv.appendChild(dueDateDiv);
+        todoDiv.classList.add(`${todo.priority}-priority`);
 
-        const contentBox = document.querySelector('.content-container');
-        contentBox.appendChild(todoDiv);
+        const titleP = document.createElement('p');
+        titleP.innerHTML = todo.title;
+
+        const dueDateP = document.createElement('p');
+        dueDateP.innerHTML = todo.dueDate;
+
+        todoDiv.appendChild(titleP);
+        todoDiv.appendChild(dueDateP);
+
+        const outerContentContainer = document.querySelector('.outer-content-container');
+        outerContentContainer.appendChild(todoDiv);
+
+        console.log(`${todo.title}`);
       }
     }
   });

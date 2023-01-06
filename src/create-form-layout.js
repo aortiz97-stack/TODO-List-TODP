@@ -39,7 +39,8 @@ const formContents = (formHeader, formSideBar, formMainContent) => {
   function populateFormMainContent() {
     const contentContainer = document.createElement('div');
     contentContainer.classList.add('content-container');
-    const form = document.createElement('form');
+    const form = document.createElement('div');
+    form.classList.add('form');
     const populatedForm = populateForm(form);
 
     contentContainer.appendChild(populatedForm);

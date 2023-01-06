@@ -57,7 +57,6 @@ export default function populateForm(form) {
   createNotRadioInputHTML('project', 'text');
 
   const submitButton = document.createElement('button');
-  submitButton.type = 'submit';
   submitButton.id = 'submit';
   submitButton.innerHTML = 'Submit';
   htmlList.push(submitButton);
