@@ -4,9 +4,9 @@ export default function createToDo() {
     title,
     dueDate,
     priority,
-    description = undefined,
+    description = '',
     completed = false,
-    projectName = undefined,
+    projectName = '',
   ) => ({
     title, description, dueDate, priority, completed, projectName,
   });
