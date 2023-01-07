@@ -1,6 +1,6 @@
 import populateForm from './todo-form-tab';
 
-function deleteFormBox() {
+export function deleteFormBox() {
   const formBox = document.querySelector('div#form-box');
   const body = document.querySelector('body');
   body.removeChild(formBox);
