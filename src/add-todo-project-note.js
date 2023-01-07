@@ -9,12 +9,17 @@ function addToDoButtons(toDoDiv) {
   exitButton.classList.add('absolute');
   exitButton.classList.add('exit-button');
   exitButton.innerHTML = 'x';
-  exitButton.addEventListener('click', () => {
-    const outerContentContainer = document.querySelector('.outer-content-container');
+  toDoDiv.append(exitButton);
+
+  const outerContentContainer = document.querySelector('.outer-content-container');
+  outerContentContainer.appendChild(toDoDiv);
+
+  const exitButtonList = document.querySelectorAll('.exit-button');
+  const individualExitButton = exitButtonList[exitButtonList.length - 1];
+
+  individualExitButton.addEventListener('click', () => {
     outerContentContainer.removeChild(toDoDiv);
   });
-  toDoDiv.append(exitButton);
-  return toDoDiv;
 }
 
 function createToDoDiv() {
@@ -57,9 +62,6 @@ function createToDoDiv() {
   todoDiv.appendChild(descriptionDiv);
 
   todoDiv = addToDoButtons(todoDiv);
-
-  const outerContentContainer = document.querySelector('.outer-content-container');
-  outerContentContainer.appendChild(todoDiv);
 
   const formBoxHTML = document.querySelector('#form-box');
   body.removeChild(formBoxHTML);
