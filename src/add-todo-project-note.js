@@ -4,6 +4,19 @@ import createFormLayout from './create-form-layout';
 
 const body = document.querySelector('body');
 
+function addToDoButtons(toDoDiv) {
+  const exitButton = document.createElement('button');
+  exitButton.classList.add('absolute');
+  exitButton.classList.add('exit-button');
+  exitButton.innerHTML = 'x';
+  exitButton.addEventListener('click', () => {
+    const outerContentContainer = document.querySelector('.outer-content-container');
+    outerContentContainer.removeChild(toDoDiv);
+  });
+  toDoDiv.append(exitButton);
+  return toDoDiv;
+}
+
 function createToDoDiv() {
   const title = (document.querySelector('input#title')).value;
   const dueDate = (document.querySelector('input#due-date')).value;
@@ -14,7 +27,7 @@ function createToDoDiv() {
 
   const todo = (createToDo())(title, dueDate, priority, description, status, projectName);
 
-  const todoDiv = document.createElement('div');
+  let todoDiv = document.createElement('div');
   todoDiv.classList.add('todo-object');
   todoDiv.classList.add(`${todo.priority}-priority`);
 
@@ -42,6 +55,8 @@ function createToDoDiv() {
   todoDiv.appendChild(priorityDiv);
   todoDiv.appendChild(priorityIndicator);
   todoDiv.appendChild(descriptionDiv);
+
+  todoDiv = addToDoButtons(todoDiv);
 
   const outerContentContainer = document.querySelector('.outer-content-container');
   outerContentContainer.appendChild(todoDiv);
