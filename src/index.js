@@ -1,7 +1,6 @@
 import createToDo from './todo';
 import createProject from './project';
 import createFormLayout from './create-form-layout';
-import deleteFormBox from './create-form-layout';
 
 const body = document.querySelector('body');
 const addButton = document.querySelector('div.side-bar button');
@@ -43,8 +42,13 @@ addButton.addEventListener('click', () => {
         descriptionDiv.classList.add('todo-description');
         descriptionDiv.innerHTML = todo.description;
 
+        const priorityDiv = document.createElement('div');
+        priorityDiv.classList.add('todo-priority');
+        priorityDiv.innerHTML = `Priority: ${todo.priority}`;
+
         todoDiv.appendChild(titleDiv);
         todoDiv.appendChild(dueDateDiv);
+        todoDiv.appendChild(priorityDiv);
         todoDiv.appendChild(priorityIndicator);
         todoDiv.appendChild(descriptionDiv);
 
