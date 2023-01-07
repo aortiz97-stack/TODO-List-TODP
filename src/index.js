@@ -1,6 +1,7 @@
 import createToDo from './todo';
 import createProject from './project';
 import createFormLayout from './create-form-layout';
+import deleteFormBox from './create-form-layout';
 
 const body = document.querySelector('body');
 const addButton = document.querySelector('div.side-bar button');
@@ -17,7 +18,7 @@ addButton.addEventListener('click', () => {
         const title = (document.querySelector('input#title')).value;
         const dueDate = (document.querySelector('input#due-date')).value;
         const priority = (document.querySelector('input[name = "priority"]')).value;
-        const description = (document.querySelector('input#description'));
+        const description = (document.querySelector('input#description')).value;
         const status = (document.querySelector('input#completed')).value;
         const projectName = (document.querySelector('input#project')).value;
 
@@ -27,19 +28,31 @@ addButton.addEventListener('click', () => {
         todoDiv.classList.add('todo-object');
         todoDiv.classList.add(`${todo.priority}-priority`);
 
-        const titleP = document.createElement('p');
-        titleP.innerHTML = todo.title;
+        const titleDiv = document.createElement('div');
+        titleDiv.classList.add('todo-title');
+        titleDiv.innerHTML = todo.title;
 
-        const dueDateP = document.createElement('p');
-        dueDateP.innerHTML = todo.dueDate;
+        const dueDateDiv = document.createElement('div');
+        dueDateDiv.classList.add('todo-due-date');
+        dueDateDiv.innerHTML = `Due date: ${todo.dueDate}`;
 
-        todoDiv.appendChild(titleP);
-        todoDiv.appendChild(dueDateP);
+        const priorityIndicator = document.createElement('div');
+        priorityIndicator.classList.add('priority-indicator');
+
+        const descriptionDiv = document.createElement('div');
+        descriptionDiv.classList.add('todo-description');
+        descriptionDiv.innerHTML = todo.description;
+
+        todoDiv.appendChild(titleDiv);
+        todoDiv.appendChild(dueDateDiv);
+        todoDiv.appendChild(priorityIndicator);
+        todoDiv.appendChild(descriptionDiv);
 
         const outerContentContainer = document.querySelector('.outer-content-container');
         outerContentContainer.appendChild(todoDiv);
 
-        console.log(`${todo.title}`);
+        const formBoxHTML = document.querySelector('#form-box');
+        body.removeChild(formBoxHTML);
       }
     }
   });

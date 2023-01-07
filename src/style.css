@@ -1,5 +1,10 @@
+@font-face {
+    font-family: Always-Forever;
+    src: url('./fonts/always\ forever.ttf');
+}
+
 :root {
-    font-family: Arial, sans-serif;
+    font-family: Verdana, sans-serif;
     color: black;
 }
 
@@ -14,7 +19,7 @@ button:hover {
     height: 75vh;
     width: 50vw;
     background-color: white;
-    border: 1px aqua solid;
+    border: 1px black solid;
 
 }
 
@@ -76,6 +81,15 @@ a {
     grid-row: 2 / -1;
     grid-column: 2 / -1;
     background-color: white;
+    overflow: scroll;
+}
+
+.outer-content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    padding: 20px;
+    gap: 50px;
 }
 
 #form-box .header {
@@ -103,4 +117,47 @@ a {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+.todo-object {
+    display: grid;
+    grid-template-rows: 1fr 1fr 4fr;
+    grid-template-columns: 0.5fr 10fr;
+    border-radius: 15px;
+    font-family: Always-Forever, Verdana, sans-serif;
+    font-size: 2rem;
+}
+
+.priority-indicator {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    background-color: #A2E4B8;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.todo-object div {
+    padding: 5px;
+}
+
+.todo-title {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    background-color: #E6E6FA;
+    border-top-right-radius: 15px;
+}
+
+.todo-due-date {
+    grid-column: 2 / -1;
+    grid-row: 2 / 3;
+    background-color: #E0ECF8;
+}
+
+.todo-description {
+    grid-column: 2 / -1;
+    grid-row: 3 / -1;
+    background-color: #E0ECF8;
+    border-bottom-right-radius: 15px;
+    overflow: auto;
+    padding-top: 5px;
 }
