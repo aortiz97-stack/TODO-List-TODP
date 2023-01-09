@@ -1,18 +1,22 @@
-/* eslint-disable no-param-reassign */
 const ToDo = (
   title,
   dueDate,
   priority,
   description = '',
   completed = false,
-  projectName = '',
+  project = '',
 ) => {
+  const projectName = project;
+
   const removeProjectName = () => {
-    projectName = '';
+    // eslint-disable-next-line no-use-before-define
+    obj.projectName = '';
   };
-  return {
+
+  const obj = {
     title, description, dueDate, priority, completed, projectName, removeProjectName,
   };
-};
 
+  return obj;
+};
 export default ToDo;

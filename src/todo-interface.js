@@ -1,5 +1,5 @@
-import './todo';
-import './project';
+import ToDo from './todo';
+import Project from './project';
 
 const toDoInterface = (() => {
   let toDoMasterList = [];
@@ -43,14 +43,15 @@ const toDoInterface = (() => {
 
   const removeObjectFromMasterList = (objectType, object) => {
     let returnedList;
-    const index = returnedList.indexOf(object);
     if (objectType === 'todo') {
       returnedList = getToDoMasterList();
     } else if (objectType === 'project') {
       returnedList = getProjectMasterlist();
+      console.log('success!');
     } else if (objectType === 'note') {
       returnedList = getNoteMasterList();
     }
+    const index = returnedList.indexOf(object);
     returnedList.splice(index, 1);
 
     if (objectType === 'todo') {
@@ -97,7 +98,7 @@ const toDoInterface = (() => {
     removeToDoProject(toDo);
   };
 
-  const createNewProject = (newProject) => {
+  const addProject = (newProject) => {
     addObjectToMasterList('project', newProject);
     const masterToDoList = getToDoMasterList();
     for (let i = 0; i < masterToDoList.length; i += 1) {
@@ -109,9 +110,10 @@ const toDoInterface = (() => {
   };
 
   const removeProject = (project) => {
-    const { toDoList } = project;
-    for (let i = 0; i < toDoList.length; i += 1) {
-      toDoList[i].removeProjectName();
+    for (let i = 0; i < toDoMasterList.length; i += 1) {
+      console.log(`Before toDo: ${toDoMasterList[i].projectName}`);
+      toDoMasterList[i].removeProjectName();
+      console.log(`After toDo: ${toDoMasterList[i].projectName}`);
     }
     removeObjectFromMasterList('project', project);
   };
@@ -122,12 +124,9 @@ const toDoInterface = (() => {
     noteMasterList,
     addToDo,
     removeToDo,
-    createNewProject,
+    addProject,
     removeProject,
   };
 })();
-
-const practiceInterface = toDoInterface();
-/*const toDo1 = */
 
 export default toDoInterface;

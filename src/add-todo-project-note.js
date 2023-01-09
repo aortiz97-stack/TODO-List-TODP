@@ -1,5 +1,5 @@
-import createToDo from './todo';
-import createProject from './project';
+import ToDo from './todo';
+import Project from './project';
 import createFormLayout from './create-form-layout';
 
 const body = document.querySelector('body');
@@ -66,7 +66,7 @@ function createToDoDiv() {
   const status = (document.querySelector('input#completed')).value;
   const projectName = (document.querySelector('input#project')).value;
 
-  const todo = (createToDo())(title, dueDate, priority, description, status, projectName);
+  const todo = ToDo(title, dueDate, priority, description, status, projectName);
 
   let todoDiv = document.createElement('div');
   todoDiv.classList.add('todo-object');
