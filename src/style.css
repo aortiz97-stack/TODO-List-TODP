@@ -137,9 +137,20 @@ a {
 .priority-indicator {
     grid-column: 1 / 2;
     grid-row: 1 / -1;
-    background-color: #A2E4B8;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+}
+
+.priority-indicator.low-priority {
+    background-color: #A2E4B8;
+}
+
+.priority-indicator.medium-priority {
+    background-color: #FDFD96;
+}
+
+.priority-indicator.high-priority {
+    background-color: #ff6961;
 }
 
 .todo-object div {

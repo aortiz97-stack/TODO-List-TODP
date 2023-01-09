@@ -77,7 +77,6 @@ function createToDoDiv() {
   for (let i = 0; i < statusButtons.length; i += 1) {
     if (statusButtons[i].checked) {
       status = statusButtons[i].value;
-      console.log(`status: ${status}`);
     }
   }
   const projectName = (document.querySelector('input#project')).value;
@@ -98,6 +97,13 @@ function createToDoDiv() {
   dueDateDiv.innerHTML = `Due date: ${todo.dueDate}`;
 
   const priorityIndicator = document.createElement('div');
+  if (todo.priority === 'low') {
+    priorityIndicator.classList.add('low-priority');
+  } else if (todo.priority === 'medium') {
+    priorityIndicator.classList.add('medium-priority');
+  } else if (todo.priority === 'high') {
+    priorityIndicator.classList.add('high-priority');
+  }
   priorityIndicator.classList.add('priority-indicator');
 
   const descriptionDiv = document.createElement('div');
