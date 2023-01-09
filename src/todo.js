@@ -7,8 +7,13 @@ export default function createToDo() {
     description = '',
     completed = false,
     projectName = '',
-  ) => ({
-    title, description, dueDate, priority, completed, projectName,
-  });
+  ) => {
+    const removeProjectName = () => {
+      projectName = '';
+    };
+    return {
+      title, description, dueDate, priority, completed, projectName, removeProjectName,
+    };
+  };
   return ToDo;
 }
