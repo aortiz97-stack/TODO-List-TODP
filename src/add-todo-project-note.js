@@ -4,7 +4,7 @@ import createFormLayout from './create-form-layout';
 
 const body = document.querySelector('body');
 
-function addToDoButtons(toDoDiv) {
+function addExitButton(toDoDiv) {
   const exitButton = document.createElement('button');
   exitButton.classList.add('absolute');
   exitButton.classList.add('exit-button');
@@ -20,6 +20,27 @@ function addToDoButtons(toDoDiv) {
   individualExitButton.addEventListener('click', () => {
     outerContentContainer.removeChild(toDoDiv);
   });
+}
+
+function addEditButton(toDoDiv) {
+  const editImage = document.createElement('img');
+  const divImage = document.createElement('div');
+  const editButton = document.createElement('button');
+  editImage.src = '../src/images/edit-icon.png';
+  editImage.alt = 'Edit icon';
+  divImage.appendChild(editImage);
+  editButton.appendChild(divImage);
+  editButton.addEventListener('click', () => {
+    console.log('code coming soon');
+  });
+  editButton.classList.add('absolute');
+  editButton.classList.add('edit-button');
+  toDoDiv.appendChild(editButton);
+}
+
+function addToDoButtons(toDoDiv) {
+  addExitButton(toDoDiv);
+  addEditButton(toDoDiv);
 }
 
 function createToDoDiv() {
