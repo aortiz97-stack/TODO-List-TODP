@@ -1,10 +1,11 @@
 import ToDo from './todo';
 import Project from './project';
 import createFormLayout from './create-form-layout';
+import toDoInterface from './todo-interface';
 
 const body = document.querySelector('body');
 
-function addExitButton(toDoDiv) {
+function addExitButton(toDoDiv, toDo) {
   const exitButton = document.createElement('button');
   exitButton.classList.add('absolute');
   exitButton.classList.add('exit-button');
@@ -19,6 +20,8 @@ function addExitButton(toDoDiv) {
 
   individualExitButton.addEventListener('click', () => {
     outerContentContainer.removeChild(toDoDiv);
+    toDoInterface.removeToDo(toDo);
+    console.log(`your deleted list: ${toDoInterface.toDoMasterList}`);
   });
 }
 
@@ -52,8 +55,8 @@ function addExpandButton(toDoDiv) {
   toDoDiv.appendChild(expandButton);
 }
 
-function addToDoButtons(toDoDiv) {
-  addExitButton(toDoDiv);
+function addToDoButtons(toDoDiv, toDo) {
+  addExitButton(toDoDiv, toDo);
   addEditButton(toDoDiv);
   addExpandButton(toDoDiv);
 }
@@ -67,6 +70,7 @@ function createToDoDiv() {
   const projectName = (document.querySelector('input#project')).value;
 
   const todo = ToDo(title, dueDate, priority, description, status, projectName);
+  toDoInterface.addToDo(todo);
 
   let todoDiv = document.createElement('div');
   todoDiv.classList.add('todo-object');
@@ -97,7 +101,7 @@ function createToDoDiv() {
   todoDiv.appendChild(priorityIndicator);
   todoDiv.appendChild(descriptionDiv);
 
-  todoDiv = addToDoButtons(todoDiv);
+  todoDiv = addToDoButtons(todoDiv, todo);
 
   const formBoxHTML = document.querySelector('#form-box');
   body.removeChild(formBoxHTML);
@@ -116,6 +120,7 @@ export default function addItem() {
       if (e.target.innerHTML === 'Submit') {
         if (form.id === 'todo') {
           createToDoDiv();
+          console.log(`your list! ${toDoInterface.toDoMasterList}`);
         }
       }
     });
