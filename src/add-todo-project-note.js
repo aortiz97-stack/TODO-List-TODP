@@ -21,7 +21,6 @@ function addExitButton(toDoDiv, toDo) {
   individualExitButton.addEventListener('click', () => {
     outerContentContainer.removeChild(toDoDiv);
     toDoInterface.removeToDo(toDo);
-    console.log(`your deleted list: ${toDoInterface.toDoMasterList}`);
   });
 }
 
@@ -34,7 +33,6 @@ function addEditButton(toDoDiv) {
   divImage.appendChild(editImage);
   editButton.appendChild(divImage);
   editButton.addEventListener('click', () => {
-    console.log('code coming soon');
   });
   editButton.classList.add('absolute');
   editButton.classList.add('edit-button');
@@ -44,7 +42,7 @@ function addEditButton(toDoDiv) {
 function addExpandButton(toDoDiv) {
   const expandButton = document.createElement('button');
   expandButton.classList.add('absolute');
-  expandButton.classList.add('expand-button')
+  expandButton.classList.add('expand-button');
   const divImage = document.createElement('div');
   const expandImg = document.createElement('img');
   expandImg.src = '../src/images/expand-icon.png';
@@ -64,9 +62,24 @@ function addToDoButtons(toDoDiv, toDo) {
 function createToDoDiv() {
   const title = (document.querySelector('input#title')).value;
   const dueDate = (document.querySelector('input#due-date')).value;
-  const priority = (document.querySelector('input[name = "priority"]')).value;
+
+  const priorityButtons = (document.querySelectorAll('input[name = "priority"]'));
+  let priority;
+  for (let i = 0; i < priorityButtons.length; i += 1) {
+    if (priorityButtons[i].checked) {
+      priority = priorityButtons[i].value;
+    }
+  }
   const description = (document.querySelector('input#description')).value;
-  const status = (document.querySelector('input#completed')).value;
+
+  const statusButtons = document.querySelectorAll('input[name = "status"]');
+  let status;
+  for (let i = 0; i < statusButtons.length; i += 1) {
+    if (statusButtons[i].checked) {
+      status = statusButtons[i].value;
+      console.log(`status: ${status}`);
+    }
+  }
   const projectName = (document.querySelector('input#project')).value;
 
   const todo = ToDo(title, dueDate, priority, description, status, projectName);
@@ -120,7 +133,6 @@ export default function addItem() {
       if (e.target.innerHTML === 'Submit') {
         if (form.id === 'todo') {
           createToDoDiv();
-          console.log(`your list! ${toDoInterface.toDoMasterList}`);
         }
       }
     });

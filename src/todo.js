@@ -3,7 +3,7 @@ const ToDo = (
   dueDate,
   priority,
   description = '',
-  completed = false,
+  status = 'not completed',
   project = '',
 ) => {
   const projectName = project;
@@ -14,7 +14,7 @@ const ToDo = (
   };
 
   const obj = {
-    title, description, dueDate, priority, completed, projectName, removeProjectName,
+    title, description, dueDate, priority, status, projectName, removeProjectName,
   };
 
   return obj;
