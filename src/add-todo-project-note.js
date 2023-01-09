@@ -38,9 +38,24 @@ function addEditButton(toDoDiv) {
   toDoDiv.appendChild(editButton);
 }
 
+function addExpandButton(toDoDiv) {
+  const expandButton = document.createElement('button');
+  expandButton.classList.add('absolute');
+  expandButton.classList.add('expand-button')
+  const divImage = document.createElement('div');
+  const expandImg = document.createElement('img');
+  expandImg.src = '../src/images/expand-icon.png';
+  expandImg.alt = 'expand icon';
+
+  divImage.appendChild(expandImg);
+  expandButton.appendChild(divImage);
+  toDoDiv.appendChild(expandButton);
+}
+
 function addToDoButtons(toDoDiv) {
   addExitButton(toDoDiv);
   addEditButton(toDoDiv);
+  addExpandButton(toDoDiv);
 }
 
 function createToDoDiv() {
