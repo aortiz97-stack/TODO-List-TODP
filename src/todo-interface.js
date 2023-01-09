@@ -63,8 +63,7 @@ const toDoInterface = (() => {
   };
 
   const addToDoDefault = (toDo) => { addObjectToMasterList('todo', toDo); };
-  const addToDo = (toDo) => {
-    addToDoDefault(toDo);
+  const addToDoProject = (toDo) => {
     const toDoProject = toDo.projectName.toLowerCase();
     const projectList = getProjectMasterlist();
     for (let i = 0; i < projectList.length; i += 1) {
@@ -75,36 +74,60 @@ const toDoInterface = (() => {
       }
     }
   };
+  const addToDo = (toDo) => {
+    addToDoDefault(toDo);
+    addToDoProject(toDo);
+  };
 
   const removeToDoDefault = (toDo) => { removeObjectFromMasterList('todo', toDo); };
-  const removeToDo = (toDo) => {
-    removeToDoDefault(toDo);
+  const removeToDoProject = (toDo) => {
     const toDoProject = toDo.projectName.toLowerCase();
     const projectList = getProjectMasterlist();
     for (let i = 0; i < projectList.length; i += 1) {
       const project = projectList[i].projectName.toLowerCase();
       if (toDoProject === project) {
         projectList[i].removeToDoList(toDo);
+        toDo.removeProjectName();
         break;
       }
     }
   };
+  const removeToDo = (toDo) => {
+    removeToDoDefault(toDo);
+    removeToDoProject(toDo);
+  };
 
   const createNewProject = (newProject) => {
     addObjectToMasterList('project', newProject);
-
-    const { toDoList } = newProject;
-
-    for (let i = 0; i < toDoList.length; i += 1){
-      
+    const masterToDoList = getToDoMasterList();
+    for (let i = 0; i < masterToDoList.length; i += 1) {
+      const toDo = masterToDoList[i];
+      if (toDo.projectName.toLowerCase() === newProject.projectName.toLowerCase()) {
+        newProject.addToDoList(toDo);
+      }
     }
+  };
 
-    
+  const removeProject = (project) => {
+    const { toDoList } = project;
+    for (let i = 0; i < toDoList.length; i += 1) {
+      toDoList[i].removeProjectName();
+    }
+    removeObjectFromMasterList('project', project);
   };
 
   return {
-    toDoMasterList, projectMasterList, noteMasterList, addToDo, removeToDo,
+    toDoMasterList,
+    projectMasterList,
+    noteMasterList,
+    addToDo,
+    removeToDo,
+    createNewProject,
+    removeProject,
   };
 })();
 
-export default toDoList;
+const practiceInterface = toDoInterface();
+/*const toDo1 = */
+
+export default toDoInterface;
