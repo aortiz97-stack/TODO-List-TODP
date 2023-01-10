@@ -28,7 +28,7 @@ export default function populateForm(form) {
       radioInput.name = radioInputName;
       radioInput.type = 'radio';
 
-      if (radioInputName === 'completed' && radioInputValues[i] === 'not completed') {
+      if (radioInputName === 'status' && radioInputValues[i] === 'not completed') {
         radioInput.checked = 'checked';
       } else if (radioInputName === 'priority' && radioInputValues[i] === 'low') {
         radioInput.checked = 'checked';
@@ -54,7 +54,7 @@ export default function populateForm(form) {
   statusLabel.innerHTML = 'Status';
   htmlList.push(statusLabel);
 
-  createRadioInputHTML(['completed', 'not completed'], 'completed');
+  createRadioInputHTML(['completed', 'not completed'], 'status');
   createNotRadioInputHTML('project', 'text');
 
   const submitButton = document.createElement('button');

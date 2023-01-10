@@ -155,6 +155,10 @@ a {
     background-color: #ff6961;
 }
 
+.completed .priority-indicator {
+    background-color: #CFCFC4;
+}
+
 .todo-object div {
     padding: 5px;
 }

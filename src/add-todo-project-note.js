@@ -72,6 +72,7 @@ function createToDoDiv() {
   const dueDate = (document.querySelector('input#due-date')).value;
 
   const priorityButtons = (document.querySelectorAll('input[name = "priority"]'));
+  console.log(`priorityButtons: ${priorityButtons[0]}`);
   let priority;
   for (let i = 0; i < priorityButtons.length; i += 1) {
     if (priorityButtons[i].checked) {
@@ -126,8 +127,10 @@ function createToDoDiv() {
   const statusCheckbox = document.createElement('input');
   statusCheckbox.id = 'status-input';
   statusCheckbox.type = 'checkbox';
+  console.log(todo.status);
   if (todo.status === 'completed') {
     statusCheckbox.checked = 'checked';
+    todoDiv.classList.add('completed');
   }
   const statusLabel = document.createElement('label');
   statusLabel.for = 'status-input';
