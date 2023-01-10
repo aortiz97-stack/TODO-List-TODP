@@ -147,15 +147,15 @@ a {
     border-bottom-left-radius: 15px;
 }
 
-.priority-indicator.low-priority {
+.low-priority .priority-indicator {
     background-color: #A2E4B8;
 }
 
-.priority-indicator.medium-priority {
+.medium-priority .priority-indicator {
     background-color: #FDFD96;
 }
 
-.priority-indicator.high-priority {
+.high-priority .priority-indicator {
     background-color: #ff6961;
 }
 

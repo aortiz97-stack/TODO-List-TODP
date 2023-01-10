@@ -1,10 +1,12 @@
+import todoInterface from './todo-interface';
+/* eslint-disable no-param-reassign */
 const EditForm = (() => {
   function deleteFormBox() {
     const body = document.querySelector('body');
     const editFormBox = document.querySelector('#edit-form-box');
     body.removeChild(editFormBox);
   }
-  const formContents = (formHeader, formMainContent, todo) => {
+  const formContents = (formHeader, formMainContent, todoDiv, todo) => {
     function populateFormHeader() {
       const formTitle = document.createElement('h1');
       formTitle.innerHTML = 'Edit';
@@ -23,17 +25,17 @@ const EditForm = (() => {
       function createNotRadioInputHTML(name, inputType) {
         const labelInputDiv = document.createElement('div');
         const label = document.createElement('label');
-        label.for = `${name}-to-edit`;
+        label.for = `edit-${name}`;
         let labelName = `${name.charAt(0).toUpperCase() + name.slice(1)} `;
         labelName = labelName.replace('-', ' ');
         label.innerHTML = labelName;
 
         let input = document.createElement('input');
-        input.id = `${name}-to-edit`;
         input.type = inputType;
         if (inputType === 'textarea') {
           input = document.createElement('textarea');
         }
+        input.id = `edit-${name}`;
         const todoInput = document.querySelector(`.todo-${name}`);
         if (!Number.isNaN(todoInput)) {
           if (name === 'title') {
@@ -57,9 +59,10 @@ const EditForm = (() => {
         for (let i = 0; i < priorityValues.length; i += 1) {
           const valueDiv = document.createElement('div');
           const input = document.createElement('input');
-          input.id = `edit-${priorityValues[i]}-priority`;
+          input.id = `${priorityValues[i]}`;
           input.type = 'radio';
-          input.name = 'priority';
+          input.name = 'edit-priority';
+          input.value = priorityValues[i];
 
           if (todo.priority === priorityValues[i]) {
             input.checked = 'checked';
@@ -89,6 +92,43 @@ const EditForm = (() => {
       const submit = document.createElement('button');
       submit.id = 'edit-submit-button';
       submit.innerHTML = 'Submit';
+      submit.addEventListener('click', () => {
+        const newTitle = document.querySelector('#edit-title').value;
+        const newDate = document.querySelector('#edit-due-date').value;
+        const editedPriorityInputs = document.querySelectorAll('input[name = "edit-priority"]');
+
+        let newPriority;
+        for (let i = 0; i < editedPriorityInputs.length; i += 1) {
+          console.log(editedPriorityInputs[i].value);
+          if (editedPriorityInputs[i].checked) {
+            newPriority = editedPriorityInputs[i].value;
+            todoDiv.classList.remove('low-priority');
+            todoDiv.classList.remove('medium-priority');
+            todoDiv.classList.remove('high-priority');
+            todoDiv.classList.add(`${newPriority}-priority`);
+          }
+        }
+        const newProject = document.querySelector('#edit-project').value;
+        const newDescription = document.querySelector('#edit-description').value;
+
+        todo.title = newTitle;
+        todo.dueDate = newDate;
+        todo.priority = newPriority;
+        todo.projectName = newProject;
+        todo.description = newDescription;
+
+        const todoDivTitle = todoDiv.querySelector('.todo-title');
+        const todoDivDate = todoDiv.querySelector('.todo-due-date');
+        const todoDivPriority = todoDiv.querySelector('.todo-priority');
+        const todoDivProject = todoDiv.querySelector('.todo-project');
+        const todoDivDescription = todoDiv.querySelector('.todo-description');
+
+        todoDivTitle.innerHTML = newTitle;
+        todoDivDate.innerHTML = `Due date: ${newDate}`;
+        todoDivPriority.innerHTML = `Priority: ${newPriority}`;
+        todoDivProject.innerHTML = `Project: ${newProject}`;
+        todoDivDescription.innerHTML = `Description: ${newDescription}`;
+      });
 
       htmlList.push(submit);
       for (let i = 0; i < htmlList.length; i += 1) {
@@ -103,7 +143,7 @@ const EditForm = (() => {
 
     return { populatedFormHeader, populatedFormMainContent };
   };
-  function createFormLayout(formBox, todo) {
+  function createFormLayout(formBox, todoDiv, todo) {
     const formHeader = document.createElement('div');
     formHeader.classList.add('edit');
     formHeader.classList.add('header');
@@ -112,7 +152,7 @@ const EditForm = (() => {
     formMainContent.classList.add('edit');
     formMainContent.classList.add('main-content');
 
-    const content = formContents(formHeader, formMainContent, todo);
+    const content = formContents(formHeader, formMainContent, todoDiv, todo);
 
     formBox.appendChild(content.populatedFormHeader);
     formBox.appendChild(content.populatedFormMainContent);
