@@ -33,12 +33,16 @@ function addEditButton(toDoDiv, toDo) {
   editImage.alt = 'Edit icon';
   divImage.appendChild(editImage);
   editButton.appendChild(divImage);
+
   editButton.addEventListener('click', () => {
     let formBox = document.createElement('div');
     formBox.id = 'edit-form-box';
+    console.log(`the toDo title: ${toDo.title}`);
     formBox = EditForm.createFormLayout(formBox, toDo);
     body.appendChild(formBox);
   });
+
+  editButton.onclick = ''
   editButton.classList.add('absolute');
   editButton.classList.add('edit-button');
   toDoDiv.appendChild(editButton);

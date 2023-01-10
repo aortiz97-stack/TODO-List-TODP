@@ -36,7 +36,15 @@ const EditForm = (() => {
         }
         const todoInput = document.querySelector(`.todo-${name}`);
         if (!Number.isNaN(todoInput)) {
-          input.value = todoInput.innerHTML;
+          if (name === 'title') {
+            input.value = todo.title;
+          } else if (name === 'due-date') {
+            input.value = todo.dueDate;
+          } else if (name === 'project') {
+            input.value = todo.projectName;
+          } else if (name === 'description') {
+            input.value = todo.description;
+          }
         }
         labelInputDiv.appendChild(label);
         labelInputDiv.appendChild(input);
@@ -54,7 +62,7 @@ const EditForm = (() => {
           input.name = 'priority';
 
           if (todo.priority === priorityValues[i]) {
-            input.value = priorityValues[i];
+            input.checked = 'checked';
           }
 
           const label = document.createElement('label');
