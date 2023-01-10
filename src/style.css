@@ -186,15 +186,19 @@ a {
 
 .todo-description {
     visibility: hidden;
+    height: 0;
+    width: 0;
 }
 
 .expanded .todo-description {
     visibility: visible;
+    height: auto;
+    width: auto;
     grid-column: 2 / -1;
     grid-row: 4 / -1;
     background-color: #E0ECF8;
     border-bottom-right-radius: 15px;
-    overflow: auto;
+    overflow: scroll;
     padding-top: 5px;
 }
 

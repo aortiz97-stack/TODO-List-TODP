@@ -116,7 +116,7 @@ function createToDoDiv() {
 
   const descriptionDiv = document.createElement('div');
   descriptionDiv.classList.add('todo-description');
-  descriptionDiv.innerHTML = todo.description;
+  descriptionDiv.innerHTML = `Description: ${todo.description}`;
 
   const priorityDiv = document.createElement('div');
   priorityDiv.classList.add('todo-priority');
