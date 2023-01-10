@@ -154,8 +154,10 @@ function createToDoDiv() {
     if (e.target === statusCheckbox) {
       if (statusCheckbox.checked) {
         todoDiv.classList.add('completed');
+        todo.status = 'completed';
       } else {
         todoDiv.classList.remove('completed');
+        todo.status = 'not completed';
       }
     }
   });
