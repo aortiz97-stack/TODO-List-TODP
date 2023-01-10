@@ -135,7 +135,7 @@ a {
 }
 
 .todo-object.expanded {
-    grid-template-rows: 1fr 1fr 1fr 3fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
     grid-template-columns: 0.5fr 10fr;
     max-height: 6fr;
 }
@@ -199,13 +199,27 @@ a {
     margin-bottom: 0;
 }
 
+.todo-project {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.expanded .todo-project {
+    visibility: visible;
+    grid-row: 4 / 5;
+    background-color: #E0ECF8;
+    width: auto;
+    height: auto;
+}
+
 .expanded .todo-description {
     visibility: visible;
     width: auto;
     height: auto;
     max-height: 3fr;
     grid-column: 2 / -1;
-    grid-row: 4 / -1;
+    grid-row: 5 / -1;
     background-color: #E0ECF8;
     border-bottom-right-radius: 15px;
     overflow: scroll;

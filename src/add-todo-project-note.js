@@ -128,6 +128,10 @@ function createToDoDiv() {
   priorityDiv.classList.add('todo-priority');
   priorityDiv.innerHTML = `Priority: ${todo.priority}`;
 
+  const projectDiv = document.createElement('div');
+  projectDiv.classList.add('todo-project');
+  projectDiv.innerHTML = `Project: ${todo.projectName}`;
+
   const statusDiv = document.createElement('div');
   const statusCheckbox = document.createElement('input');
   statusCheckbox.id = 'status-input';
@@ -150,6 +154,7 @@ function createToDoDiv() {
   todoDiv.appendChild(dueDateDiv);
   todoDiv.appendChild(priorityDiv);
   todoDiv.appendChild(priorityIndicator);
+  todoDiv.appendChild(projectDiv);
   todoDiv.appendChild(descriptionDiv);
   todoDiv.appendChild(statusDiv);
 

@@ -76,7 +76,7 @@ const EditForm = (() => {
 
       createPriorityInput();
       createNotRadioInputHTML('description', 'textarea');
-      /*createNotRadioInputHTML('project', 'text');*/
+      createNotRadioInputHTML('project', 'text');
 
       const submit = document.createElement('button');
       submit.id = 'edit-submit-button';
