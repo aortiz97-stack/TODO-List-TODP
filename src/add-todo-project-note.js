@@ -1,6 +1,7 @@
 import ToDo from './todo';
 import Project from './project';
-import createFormLayout from './create-form-layout';
+import InitialForm from './create-initial-form-layout';
+import EditForm from './create-edit-form-layout';
 import toDoInterface from './todo-interface';
 
 const body = document.querySelector('body');
@@ -24,7 +25,7 @@ function addExitButton(toDoDiv, toDo) {
   });
 }
 
-function addEditButton(toDoDiv) {
+function addEditButton(toDoDiv, toDo) {
   const editImage = document.createElement('img');
   const divImage = document.createElement('div');
   const editButton = document.createElement('button');
@@ -33,6 +34,10 @@ function addEditButton(toDoDiv) {
   divImage.appendChild(editImage);
   editButton.appendChild(divImage);
   editButton.addEventListener('click', () => {
+    let formBox = document.createElement('div');
+    formBox.id = 'edit-form-box';
+    formBox = EditForm.createFormLayout(formBox, toDo);
+    body.appendChild(formBox);
   });
   editButton.classList.add('absolute');
   editButton.classList.add('edit-button');
@@ -63,7 +68,7 @@ function addExpandButton(toDoDiv) {
 
 function addToDoButtons(toDoDiv, toDo) {
   addExitButton(toDoDiv, toDo);
-  addEditButton(toDoDiv);
+  addEditButton(toDoDiv, toDo);
   addExpandButton(toDoDiv);
   return toDoDiv;
 }
@@ -162,7 +167,7 @@ function createToDoDiv() {
     }
   });
 
-  const formBoxHTML = document.querySelector('#form-box');
+  const formBoxHTML = document.querySelector('#initial-form-box');
   body.removeChild(formBoxHTML);
 }
 
@@ -170,8 +175,8 @@ export default function addItem() {
   const addButton = document.querySelector('div.side-bar button');
   addButton.addEventListener('click', () => {
     let formBox = document.createElement('div');
-    formBox.id = 'form-box';
-    formBox = createFormLayout(formBox);
+    formBox.id = 'initial-form-box';
+    formBox = InitialForm.createFormLayout(formBox);
     body.appendChild(formBox);
 
     const form = document.querySelector('.form');
