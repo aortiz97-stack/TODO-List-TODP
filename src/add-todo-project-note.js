@@ -65,6 +65,7 @@ function addToDoButtons(toDoDiv, toDo) {
   addExitButton(toDoDiv, toDo);
   addEditButton(toDoDiv);
   addExpandButton(toDoDiv);
+  return toDoDiv;
 }
 
 function createToDoDiv() {
@@ -72,7 +73,6 @@ function createToDoDiv() {
   const dueDate = (document.querySelector('input#due-date')).value;
 
   const priorityButtons = (document.querySelectorAll('input[name = "priority"]'));
-  console.log(`priorityButtons: ${priorityButtons[0]}`);
   let priority;
   for (let i = 0; i < priorityButtons.length; i += 1) {
     if (priorityButtons[i].checked) {
@@ -127,11 +127,11 @@ function createToDoDiv() {
   const statusCheckbox = document.createElement('input');
   statusCheckbox.id = 'status-input';
   statusCheckbox.type = 'checkbox';
-  console.log(todo.status);
   if (todo.status === 'completed') {
     statusCheckbox.checked = 'checked';
     todoDiv.classList.add('completed');
   }
+
   const statusLabel = document.createElement('label');
   statusLabel.for = 'status-input';
   statusLabel.innerHTML = 'Completed';
@@ -149,6 +149,17 @@ function createToDoDiv() {
   todoDiv.appendChild(statusDiv);
 
   todoDiv = addToDoButtons(todoDiv, todo);
+
+  todoDiv.addEventListener('click', (e) => {
+    if (e.target === statusCheckbox) {
+      console.log(`todoDiv ${todoDiv}`);
+      if (statusCheckbox.checked) {
+        todoDiv.classList.add('completed');
+      } else {
+        todoDiv.classList.remove('completed');
+      }
+    }
+  });
 
   const formBoxHTML = document.querySelector('#form-box');
   body.removeChild(formBoxHTML);
