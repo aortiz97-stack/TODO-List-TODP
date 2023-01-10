@@ -122,11 +122,28 @@ function createToDoDiv() {
   priorityDiv.classList.add('todo-priority');
   priorityDiv.innerHTML = `Priority: ${todo.priority}`;
 
+  const statusDiv = document.createElement('div');
+  const statusCheckbox = document.createElement('input');
+  statusCheckbox.id = 'status-input';
+  statusCheckbox.type = 'checkbox';
+  if (todo.status === 'completed') {
+    statusCheckbox.checked = 'checked';
+  }
+  const statusLabel = document.createElement('label');
+  statusLabel.for = 'status-input';
+  statusLabel.innerHTML = 'Completed';
+
+  statusDiv.appendChild(statusCheckbox);
+  statusDiv.appendChild(statusLabel);
+  statusDiv.classList.add('absolute');
+  statusDiv.classList.add('todo-status');
+
   todoDiv.appendChild(titleDiv);
   todoDiv.appendChild(dueDateDiv);
   todoDiv.appendChild(priorityDiv);
   todoDiv.appendChild(priorityIndicator);
   todoDiv.appendChild(descriptionDiv);
+  todoDiv.appendChild(statusDiv);
 
   todoDiv = addToDoButtons(todoDiv, todo);
 
