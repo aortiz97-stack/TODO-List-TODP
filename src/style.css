@@ -178,7 +178,7 @@ a {
     border-bottom-right-radius: 15px;
 }
 
-.expanded.todo-priority {
+.expanded .todo-priority {
     border-bottom-right-radius: 0px;
 }
 
@@ -186,7 +186,7 @@ a {
     visibility: hidden;
 }
 
-.expanded.todo-description {
+.expanded .todo-description {
     visibility: visible;
     grid-column: 2 / -1;
     grid-row: 4 / -1;

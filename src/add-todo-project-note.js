@@ -50,6 +50,14 @@ function addExpandButton(toDoDiv) {
 
   divImage.appendChild(expandImg);
   expandButton.appendChild(divImage);
+
+  expandButton.addEventListener('click', () => {
+    if (!toDoDiv.classList.contains('expanded')) {
+      toDoDiv.classList.add('expanded');
+    } else {
+      toDoDiv.classList.remove('expanded');
+    }
+  });
   toDoDiv.appendChild(expandButton);
 }
 
