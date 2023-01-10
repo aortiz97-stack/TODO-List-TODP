@@ -152,7 +152,6 @@ function createToDoDiv() {
 
   todoDiv.addEventListener('click', (e) => {
     if (e.target === statusCheckbox) {
-      console.log(`todoDiv ${todoDiv}`);
       if (statusCheckbox.checked) {
         todoDiv.classList.add('completed');
       } else {
