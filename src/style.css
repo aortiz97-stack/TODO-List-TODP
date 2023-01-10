@@ -16,7 +16,7 @@ button:hover {
     cursor: pointer;
 }
 
-#initial-form-box{
+#initial-form-box, #edit-form-box{
     position: absolute;
     left: 25vw;
     top: 15vh;
@@ -96,16 +96,16 @@ a {
     gap: 50px;
 }
 
-#initial-form-box .header {
+#initial-form-box .header, #edit-form-box .header {
     position: relative;
     font-size: 0.75rem;
 }
 
-#initial-form-box h1 {
+#initial-form-box h1, #edit-form-box h1 {
     margin: 0;
 }
 
-#initial-form-box .header button {
+#initial-form-box .header button, #edit-form-box .header button {
     width: 20px;
     height: 20px;
     border-radius: 100%;
