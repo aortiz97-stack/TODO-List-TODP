@@ -18,6 +18,19 @@ const InitialForm = (() => {
       formHeader.appendChild(formExitButton);
       return formHeader;
     }
+    function populateFormMainContent() {
+      formMainContent.innerHTML = '';
+      const contentContainer = document.createElement('div');
+      contentContainer.classList.add('content-container');
+      const form = document.createElement('div');
+      form.classList.add('form');
+      const populatedForm = populateInitialFormToDo(form);
+
+      contentContainer.appendChild(populatedForm);
+      formMainContent.appendChild(contentContainer);
+      return formMainContent;
+    }
+
     function populateFormSideBar() {
       const ul = document.createElement('ul');
       const sideBarNames = ['To-Do', 'Project', 'Note'];
@@ -34,19 +47,16 @@ const InitialForm = (() => {
         ul.appendChild(li);
       }
 
+      ul.addEventListener('click', (e) => {
+        if (e.target.innerHTML === 'To-Do') {
+          populateFormMainContent();
+        } else {
+          alert('Something else was clicked');
+        }
+      });
+
       formSideBar.appendChild(ul);
       return formSideBar;
-    }
-    function populateFormMainContent() {
-      const contentContainer = document.createElement('div');
-      contentContainer.classList.add('content-container');
-      const form = document.createElement('div');
-      form.classList.add('form');
-      const populatedForm = populateInitialFormToDo(form);
-
-      contentContainer.appendChild(populatedForm);
-      formMainContent.appendChild(contentContainer);
-      return formMainContent;
     }
 
     const populatedFormHeader = populateFormHeader();
