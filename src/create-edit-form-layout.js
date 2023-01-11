@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import todoInterface from './todo-interface';
 /* eslint-disable no-param-reassign */
 const EditForm = (() => {
@@ -123,7 +124,7 @@ const EditForm = (() => {
         const todoDivDescription = todoDiv.querySelector('.todo-description');
 
         todoDivTitle.innerHTML = newTitle;
-        todoDivDate.innerHTML = `Due date: ${newDate}`;
+        todoDivDate.innerHTML = `Due date: ${format(new Date(newDate), 'MMMM d, yyyy')}`;
         todoDivPriority.innerHTML = `Priority: ${newPriority}`;
         todoDivProject.innerHTML = `Project: ${newProject}`;
         todoDivDescription.innerHTML = `Description: ${newDescription}`;

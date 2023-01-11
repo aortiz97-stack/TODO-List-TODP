@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import ToDo from './todo';
 import Project from './project';
 import InitialForm from './create-initial-form-layout';
@@ -37,7 +38,6 @@ function addEditButton(toDoDiv, toDo) {
   editButton.addEventListener('click', () => {
     let formBox = document.createElement('div');
     formBox.id = 'edit-form-box';
-    console.log(`the toDo title: ${toDo.title}`);
     formBox = EditForm.createFormLayout(formBox, toDoDiv, toDo);
     body.appendChild(formBox);
   });
@@ -111,7 +111,8 @@ function createToDoDiv() {
 
   const dueDateDiv = document.createElement('div');
   dueDateDiv.classList.add('todo-due-date');
-  dueDateDiv.innerHTML = `Due date: ${todo.dueDate}`;
+  console.log(`datedatedate ${format((new Date(todo.dueDate)), 'MMMM d, yyyy')}`);
+  dueDateDiv.innerHTML = `Due date: ${format(new Date(todo.dueDate), 'MMMM d, yyyy')}`;
 
   const priorityIndicator = document.createElement('div');
   if (todo.priority === 'low') {
