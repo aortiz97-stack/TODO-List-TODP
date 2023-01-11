@@ -1,4 +1,5 @@
 import populateInitialFormToDo from './todo-form-tab';
+import populateInitialFormProject from './project-form-tab';
 
 const InitialForm = (() => {
   function deleteFormBox() {
@@ -18,13 +19,17 @@ const InitialForm = (() => {
       formHeader.appendChild(formExitButton);
       return formHeader;
     }
-    function populateFormMainContent() {
-      formMainContent.innerHTML = '';
+    function populateFormMainContent(itemType = 'todo') {
       const contentContainer = document.createElement('div');
       contentContainer.classList.add('content-container');
       const form = document.createElement('div');
       form.classList.add('form');
-      const populatedForm = populateInitialFormToDo(form);
+      let populatedForm;
+      if (itemType === 'todo') {
+        populatedForm = populateInitialFormToDo(form);
+      } else if (itemType === 'project') {
+        populatedForm = populateInitialFormProject(form);
+      }
 
       contentContainer.appendChild(populatedForm);
       formMainContent.appendChild(contentContainer);
@@ -48,8 +53,11 @@ const InitialForm = (() => {
       }
 
       ul.addEventListener('click', (e) => {
+        formMainContent.innerHTML = '';
         if (e.target.innerHTML === 'To-Do') {
-          populateFormMainContent();
+          populateFormMainContent('todo');
+        } else if (e.target.innerHTML === 'Project') {
+          populateFormMainContent('project');
         } else {
           alert('Something else was clicked');
         }

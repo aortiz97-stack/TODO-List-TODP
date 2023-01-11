@@ -44,7 +44,6 @@ const toDoInterface = (() => {
       returnedList = getToDoMasterList();
     } else if (objectType === 'project') {
       returnedList = getProjectMasterlist();
-      console.log('success!');
     } else if (objectType === 'note') {
       returnedList = getNoteMasterList();
     }
