@@ -99,7 +99,6 @@ const EditForm = (() => {
 
         let newPriority;
         for (let i = 0; i < editedPriorityInputs.length; i += 1) {
-          console.log(editedPriorityInputs[i].value);
           if (editedPriorityInputs[i].checked) {
             newPriority = editedPriorityInputs[i].value;
             todoDiv.classList.remove('low-priority');
@@ -128,6 +127,10 @@ const EditForm = (() => {
         todoDivPriority.innerHTML = `Priority: ${newPriority}`;
         todoDivProject.innerHTML = `Project: ${newProject}`;
         todoDivDescription.innerHTML = `Description: ${newDescription}`;
+
+        const body = document.querySelector('body');
+        const editFormBox = document.querySelector('#edit-form-box');
+        body.removeChild(editFormBox);
       });
 
       htmlList.push(submit);
