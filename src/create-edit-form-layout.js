@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import todoInterface from './todo-interface';
+
 /* eslint-disable no-param-reassign */
 const EditForm = (() => {
   function deleteFormBox() {
