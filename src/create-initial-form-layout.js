@@ -1,4 +1,4 @@
-import populateInitialForm from './todo-form-tab';
+import populateInitialFormToDo from './todo-form-tab';
 
 const InitialForm = (() => {
   function deleteFormBox() {
@@ -42,7 +42,7 @@ const InitialForm = (() => {
       contentContainer.classList.add('content-container');
       const form = document.createElement('div');
       form.classList.add('form');
-      const populatedForm = populateInitialForm(form);
+      const populatedForm = populateInitialFormToDo(form);
 
       contentContainer.appendChild(populatedForm);
       formMainContent.appendChild(contentContainer);

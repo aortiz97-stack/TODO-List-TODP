@@ -1,4 +1,4 @@
-export default function populateForm(form) {
+export default function populateInitialFormToDo(form) {
   const htmlList = [];
   function createNotRadioInputHTML(nameOfLabel, typeOfInput) {
     const input = document.createElement('input');
