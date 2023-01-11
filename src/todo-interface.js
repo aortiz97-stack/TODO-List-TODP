@@ -1,6 +1,3 @@
-import ToDo from './todo';
-import Project from './project';
-
 const toDoInterface = (() => {
   let toDoMasterList = [];
   let projectMasterList = [];
@@ -111,9 +108,7 @@ const toDoInterface = (() => {
 
   const removeProject = (project) => {
     for (let i = 0; i < toDoMasterList.length; i += 1) {
-      console.log(`Before toDo: ${toDoMasterList[i].projectName}`);
       toDoMasterList[i].removeProjectName();
-      console.log(`After toDo: ${toDoMasterList[i].projectName}`);
     }
     removeObjectFromMasterList('project', project);
   };
