@@ -172,7 +172,4 @@ export default function createToDoDiv() {
       }
     }
   });
-
-  const formBoxHTML = document.querySelector('#initial-form-box');
-  body.removeChild(formBoxHTML);
 }

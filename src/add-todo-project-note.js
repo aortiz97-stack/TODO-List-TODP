@@ -1,6 +1,6 @@
-import Project from './project';
 import InitialForm from './create-initial-form-layout';
 import createToDoDiv from './add-todo';
+import createProjectLi from './add-project';
 
 const body = document.querySelector('body');
 
@@ -12,12 +12,16 @@ export default function addItem() {
     formBox = InitialForm.createFormLayout(formBox);
     body.appendChild(formBox);
 
-    const form = document.querySelector('.form');
-    form.addEventListener('click', (e) => {
+    formBox.addEventListener('click', (e) => {
       if (e.target.innerHTML === 'Submit') {
+        const form = document.querySelector('.form');
+        console.log(`form id: ${form.id}`);
         if (form.id === 'todo') {
           createToDoDiv();
+        } else if (form.id === 'project') {
+          createProjectLi();
         }
+        body.removeChild(formBox);
       }
     });
   });
