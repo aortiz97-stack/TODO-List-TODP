@@ -21,13 +21,6 @@ export default function createProjectLi() {
   trashIcon.src = '../src/images/trash-icon.png';
   trashIcon.alt = 'Trash icon';
   trashIcon.id = 'trash-project-icon';
-  li.addEventListener('click', (e) => {
-    const projectUl = document.querySelector('#project-list');
-    if (e.target === trashIcon) {
-      projectUl.removeChild(li);
-    }
-    projectUl.removeChild(e.target);
-  });
   trashIcon.classList.add('project-trash-icon');
   trashIconDiv.appendChild(trashIcon);
   trashButton.appendChild(trashIconDiv);
@@ -40,6 +33,24 @@ export default function createProjectLi() {
   editIcon.classList.add('project-edit-icon');
   editIconDiv.appendChild(editIcon);
   editButton.appendChild(editIconDiv);
+
+  li.addEventListener('click', (e) => {
+    const projectUl = document.querySelector('#project-list');
+    const link = li.firstChild;
+    if (e.target === trashIcon) {
+      projectUl.removeChild(li);
+
+      const toDeleteProject = toDoInterface.getProject(link.innerHTML);
+      toDoInterface.removeProject(toDeleteProject);
+    } else if (e.target === editIcon) {
+      const oldLinkName = link.innerHTML;
+      link.innerHTML = prompt(`Enter the new name for ${oldLinkName}.`);
+
+      const toEditProject = toDoInterface.getProject(oldLinkName);
+      toEditProject.projectName = link.innerHTML;
+      toEditProject.changeToDoProjectNames(link.innerHTML);
+    }
+  });
 
   li.appendChild(trashButton);
   li.appendChild(editButton);

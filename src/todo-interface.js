@@ -112,6 +112,16 @@ const toDoInterface = (() => {
     removeObjectFromMasterList('project', project);
   };
 
+  const getProject = (projectName) => {
+    let project;
+    for (let i = 0; i < projectMasterList.length; i += 1) {
+      if (projectMasterList[i].projectName === projectName) {
+        project = projectMasterList[i];
+      }
+    }
+    return project;
+  };
+
   return {
     toDoMasterList,
     projectMasterList,
@@ -120,6 +130,7 @@ const toDoInterface = (() => {
     removeToDo,
     addProject,
     removeProject,
+    getProject,
   };
 })();
 

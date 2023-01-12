@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 const Project = (projectName) => {
   const toDoList = [];
 
@@ -10,14 +11,20 @@ const Project = (projectName) => {
     const index = toDoList.indexOf(toDo);
     toDoList.splice(index, 1);
   };
-  const moveToDoinList = (oldIndex, newIndex) => {
-    const toMoveElement = toDoList[oldIndex];
-    toDoList.splice(newIndex, 0, toMoveElement);
+
+  const changeToDoProjectNames = (newProjectName) => {
+    for (let i = 0; i < toDoList.length; i += 1) {
+      toDoList.projectName = newProjectName;
+    }
+
+    obj.projectName = newProjectName;
   };
 
-  return {
-    toDoList, addToDoList, removeToDoList, moveToDoinList, projectName,
+  const obj = {
+    toDoList, addToDoList, removeToDoList, projectName, changeToDoProjectNames,
   };
+
+  return obj;
 };
 
 export default Project;
