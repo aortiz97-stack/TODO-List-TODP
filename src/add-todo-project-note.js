@@ -1,6 +1,7 @@
 import InitialForm from './create-initial-form-layout';
 import createToDoDiv from './add-todo';
 import createProjectLi from './add-project';
+import toDoInterface from './todo-interface';
 
 const body = document.querySelector('body');
 
@@ -15,9 +16,9 @@ export default function addItem() {
     formBox.addEventListener('click', (e) => {
       if (e.target.innerHTML === 'Submit') {
         const form = document.querySelector('.form');
-        console.log(`form id: ${form.id}`);
         if (form.id === 'todo') {
-          createToDoDiv();
+          const todo = createToDoDiv();
+          toDoInterface.addToDo(todo);
         } else if (form.id === 'project') {
           createProjectLi();
         }

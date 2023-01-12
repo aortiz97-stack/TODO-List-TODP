@@ -97,7 +97,6 @@ export default function createToDoDiv() {
   const projectName = (document.querySelector('input#project')).value;
 
   const todo = ToDo(title, dueDate, priority, description, status, projectName);
-  toDoInterface.addToDo(todo);
 
   let todoDiv = document.createElement('div');
   todoDiv.classList.add('todo-object');
@@ -172,4 +171,6 @@ export default function createToDoDiv() {
       }
     }
   });
+
+  return todo;
 }

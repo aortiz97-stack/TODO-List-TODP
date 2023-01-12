@@ -45,10 +45,13 @@ export default function createProjectLi() {
     } else if (e.target === editIcon) {
       const oldLinkName = link.innerHTML;
       link.innerHTML = prompt(`Enter the new name for ${oldLinkName}.`);
-
-      const toEditProject = toDoInterface.getProject(oldLinkName);
-      toEditProject.projectName = link.innerHTML;
-      toEditProject.changeToDoProjectNames(link.innerHTML);
+      if (link.innerHTML === '') {
+        link.innerHTML = oldLinkName;
+      } else {
+        const toEditProject = toDoInterface.getProject(oldLinkName);
+        toEditProject.projectName = link.innerHTML;
+        toEditProject.changeToDoProjectNames(link.innerHTML);
+      }
     }
   });
 
