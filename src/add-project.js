@@ -20,6 +20,14 @@ export default function createProjectLi() {
   const trashIcon = document.createElement('img');
   trashIcon.src = '../src/images/trash-icon.png';
   trashIcon.alt = 'Trash icon';
+  trashIcon.id = 'trash-project-icon';
+  li.addEventListener('click', (e) => {
+    const projectUl = document.querySelector('#project-list');
+    if (e.target === trashIcon) {
+      projectUl.removeChild(li);
+    }
+    projectUl.removeChild(e.target);
+  });
   trashIcon.classList.add('project-trash-icon');
   trashIconDiv.appendChild(trashIcon);
   trashButton.appendChild(trashIconDiv);
