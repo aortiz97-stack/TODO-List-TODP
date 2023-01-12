@@ -2,6 +2,7 @@ import InitialForm from './create-initial-form-layout';
 import createToDoDiv from './add-todo';
 import createProjectLi from './add-project';
 import toDoInterface from './todo-interface';
+import displayTab from './displayToDo';
 
 const body = document.querySelector('body');
 
@@ -26,4 +27,5 @@ export default function addItem() {
       }
     });
   });
+  displayTab();
 }

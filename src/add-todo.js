@@ -1,4 +1,4 @@
-import { format } from 'date-fns';
+import { format, parse } from 'date-fns';
 import toDoInterface from './todo-interface';
 import EditForm from './create-edit-form-layout';
 import ToDo from './todo';
@@ -123,7 +123,9 @@ export default function createToDoDiv(todoParam = undefined) {
 
   const dueDateDiv = document.createElement('div');
   dueDateDiv.classList.add('todo-due-date');
-  dueDateDiv.innerHTML = `Due date: ${format(new Date(todo.dueDate), 'MMMM d, yyyy')}`;
+  const parsedDate = parse(todo.dueDate, 'yyyy-MM-dd', new Date());
+  const formatedDate = format(parsedDate, 'MMMM d, yyyy');
+  dueDateDiv.innerHTML = `Due date: ${formatedDate}`;
 
   const priorityIndicator = document.createElement('div');
   if (todo.priority === 'low') {
