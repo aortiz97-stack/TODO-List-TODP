@@ -74,29 +74,44 @@ function addToDoButtons(toDoDiv, toDo) {
   return toDoDiv;
 }
 
-export default function createToDoDiv() {
-  const title = (document.querySelector('input#title')).value;
-  const dueDate = (document.querySelector('input#due-date')).value;
-
-  const priorityButtons = (document.querySelectorAll('input[name = "priority"]'));
+export default function createToDoDiv(todoParam = undefined) {
+  let todo = todoParam;
+  let title;
+  let dueDate;
   let priority;
-  for (let i = 0; i < priorityButtons.length; i += 1) {
-    if (priorityButtons[i].checked) {
-      priority = priorityButtons[i].value;
-    }
-  }
-  const description = (document.querySelector('input#description')).value;
-
-  const statusButtons = document.querySelectorAll('input[name = "status"]');
+  let description;
   let status;
-  for (let i = 0; i < statusButtons.length; i += 1) {
-    if (statusButtons[i].checked) {
-      status = statusButtons[i].value;
-    }
-  }
-  const projectName = (document.querySelector('input#project')).value;
+  let projectName;
 
-  const todo = ToDo(title, dueDate, priority, description, status, projectName);
+  if (todo !== undefined) {
+    title = todo.title;
+    dueDate = todo.dueDate;
+    priority = todo.priority;
+    description = todo.description;
+    status = todo.status;
+    projectName = todo.projectName;
+  } else {
+    title = (document.querySelector('input#title')).value;
+    dueDate = (document.querySelector('input#due-date')).value;
+
+    const priorityButtons = (document.querySelectorAll('input[name = "priority"]'));
+    for (let i = 0; i < priorityButtons.length; i += 1) {
+      if (priorityButtons[i].checked) {
+        priority = priorityButtons[i].value;
+      }
+    }
+    description = (document.querySelector('input#description')).value;
+
+    const statusButtons = document.querySelectorAll('input[name = "status"]');
+    for (let i = 0; i < statusButtons.length; i += 1) {
+      if (statusButtons[i].checked) {
+        status = statusButtons[i].value;
+      }
+    }
+    projectName = (document.querySelector('input#project')).value;
+
+    todo = ToDo(title, dueDate, priority, description, status, projectName);
+  }
 
   let todoDiv = document.createElement('div');
   todoDiv.classList.add('todo-object');

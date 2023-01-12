@@ -1,5 +1,6 @@
 import toDoInterface from './todo-interface';
 import Project from './project';
+import displayProjectListTab from './displayToDo';
 
 export default function createProjectLi() {
   const projectName = document.querySelector('input#project-name').value;
@@ -39,7 +40,6 @@ export default function createProjectLi() {
     const link = li.firstChild;
     if (e.target === trashIcon) {
       projectUl.removeChild(li);
-
       const toDeleteProject = toDoInterface.getProject(link.innerHTML);
       toDoInterface.removeProject(toDeleteProject);
     } else if (e.target === editIcon) {
@@ -59,4 +59,6 @@ export default function createProjectLi() {
   li.appendChild(editButton);
 
   projectList.appendChild(li);
+
+  displayProjectListTab();
 }
