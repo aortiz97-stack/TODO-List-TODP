@@ -53,6 +53,7 @@ const InitialForm = (() => {
       }
 
       ul.addEventListener('click', (e) => {
+        // eslint-disable-next-line no-param-reassign
         formMainContent.innerHTML = '';
         if (e.target.innerHTML === 'To-Do') {
           populateFormMainContent('todo');
