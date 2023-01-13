@@ -66,7 +66,7 @@ const InitialForm = (() => {
           const textArea = document.createElement('textArea');
           toDoInterface.addNote(Note(textArea));
           deleteFormBox();
-          console.log(`Note masterlist: ${toDoInterface.noteMasterList}`);
+          console.log(`Typeof masterlist: ${typeof (toDoInterface.noteMasterList[0]).details}`);
         }
       });
 

@@ -1,4 +1,3 @@
-export default function createNote() {
-  const Note = (details) => ({ details });
-  return Note;
-}
+const Note = (details) => ({ details });
+
+export default Note;

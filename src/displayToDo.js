@@ -2,7 +2,7 @@ import { format, parse } from 'date-fns';
 import ToDoInterface from './todo-interface';
 import createToDoDiv from './add-todo';
 import toDoInterface from './todo-interface';
-import createNoteDiv from './add-note';
+import createNoteDivs from './add-note';
 
 function displayProjectToDo(projectName = '') {
   const todoList = ToDoInterface.toDoMasterList;
@@ -69,11 +69,8 @@ export default function displayTab() {
       displayFilteredToDos('Week');
     } else if (e.target.innerHTML === 'Month') {
       displayFilteredToDos('Month');
-    } else if (e.target.innerHTML === 'Note') {
-      const { noteMasterList } = toDoInterface;
-      for (let i = 0; i < noteMasterList.length; i += 1) {
-        createNoteDiv();
-      }
+    } else if (e.target.innerHTML === 'Notes') {
+      createNoteDivs();
     }
   });
 }
