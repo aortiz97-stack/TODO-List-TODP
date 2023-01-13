@@ -7,7 +7,7 @@ export default function populateInitialFormToDo(form) {
     input.name = nameOfLabel;
     input.id = nameOfLabel;
     input.type = typeOfInput;
-    label.innerHTML = nameOfLabel.charAt(0).toUpperCase() + nameOfLabel.slice(1);
+    label.innerHTML = `${nameOfLabel.charAt(0).toUpperCase() + nameOfLabel.slice(1)} `;
     if (nameOfLabel === 'title' || nameOfLabel === 'due-date') {
       input.setAttribute('required', '');
     }
@@ -45,13 +45,13 @@ export default function populateInitialFormToDo(form) {
   createNotRadioInputHTML('due-date', 'date');
 
   const priorityLabel = document.createElement('div');
-  priorityLabel.innerHTML = 'Priority';
+  priorityLabel.innerHTML = 'Priority ';
   htmlList.push(priorityLabel);
 
   createRadioInputHTML(['low', 'medium', 'high'], 'priority');
 
   const statusLabel = document.createElement('div');
-  statusLabel.innerHTML = 'Status';
+  statusLabel.innerHTML = 'Status ';
   htmlList.push(statusLabel);
 
   createRadioInputHTML(['completed', 'not completed'], 'status');

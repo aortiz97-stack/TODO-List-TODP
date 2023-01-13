@@ -3,6 +3,10 @@
     src: url('./fonts/always\ forever.ttf');
 }
 
+#initial-form-box, .note {
+    box-shadow: 3.6px 7.2px 7.2px hsl(0deg 0% 0% / 0.39);
+}
+
 :root {
     font-family: Verdana, sans-serif;
     color: black;
@@ -24,6 +28,7 @@ button:hover {
     width: 50vw;
     background-color: white;
     border: 1px black solid;
+    border-radius: 12px;
 
 }
 
@@ -43,6 +48,8 @@ body {
     grid-row: 1 / 2;
     grid-column: 1 / -1;
     background-color: #C8A2C8;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -58,6 +65,7 @@ h1 {
     grid-row: 2 / -1;
     grid-column: 1 / 2;
     background-color: #E6E6FA;
+    border-bottom-left-radius: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -123,6 +131,8 @@ li:hover img {
     grid-column: 2 / -1;
     background-color: white;
     overflow: scroll;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .outer-content-container {
@@ -138,8 +148,19 @@ li:hover img {
     font-size: 0.75rem;
 }
 
-#initial-form-box h1, #edit-form-box h1 {
-    margin: 0;
+.form, .edit.main-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+button#submit, button#edit-submit-button {
+    height: 30px;
+    width: 60px;
+    text-align: center;
+    justify-self: center;
 }
 
 #initial-form-box .header button, #edit-form-box .header button {
@@ -167,6 +188,7 @@ li:hover img {
     grid-template-columns: 0.5fr 10fr;
     border-radius: 15px;
     font-family: Always-Forever, Verdana, sans-serif;
+    color: black;
     font-size: 2rem;
     height: fit-content;
 }
@@ -233,11 +255,13 @@ li:hover img {
     visibility: hidden;
     height: 0;
     width: 0;
+    background-color: #E0ECF8;
     margin-bottom: 0;
 }
 
 .todo-project {
     visibility: hidden;
+    background-color: #E0ECF8;
     width: 0;
     height: 0;
 }
