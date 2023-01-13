@@ -1,6 +1,5 @@
 import toDoInterface from './todo-interface';
 import Project from './project';
-import displayTab from './displayToDo';
 
 export default function createProjectLi() {
   const projectName = document.querySelector('input#project-name').value;

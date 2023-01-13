@@ -2,15 +2,13 @@ import { format, parse } from 'date-fns';
 import ToDoInterface from './todo-interface';
 import createToDoDiv from './add-todo';
 
-function displayToDo(projectName = '') {
+function displayProjectToDo(projectName = '') {
   const todoList = ToDoInterface.toDoMasterList;
 
   const outerContentContainer = document.querySelector('.outer-content-container');
   outerContentContainer.innerHTML = '';
 
   for (let i = 0; i < todoList.length; i += 1) {
-    console.log(`projectName: ${todoList[i].projectName}`);
-    console.log(`allToDos: ${ToDoInterface.toDoMasterList}`);
     if (todoList[i].projectName === projectName) {
       createToDoDiv(todoList[i]);
     }
@@ -18,7 +16,6 @@ function displayToDo(projectName = '') {
 }
 
 function displayAllToDos() {
-  console.log('enterred');
   const todoList = ToDoInterface.toDoMasterList;
 
   const outerContentContainer = document.querySelector('.outer-content-container');
@@ -29,16 +26,23 @@ function displayAllToDos() {
   }
 }
 
-function displayTodayToDos() {
+function displayFilteredToDos(filter) {
   const todoList = ToDoInterface.toDoMasterList;
   const outerContentContainer = document.querySelector('.outer-content-container');
   outerContentContainer.innerHTML = '';
+  let formatFilter;
+  if (filter === 'Today') {
+    formatFilter = 'MMMM d, yyyy';
+  } else if (filter === 'Month') {
+    formatFilter = 'M';
+  } else if (filter === 'Week') {
+    formatFilter = 'I';
+  }
 
-  const today = format(new Date(), 'MMMM d, yyyy');
-  console.log(`today: ${today}`);
+  const today = format(new Date(), formatFilter);
   for (let i = 0; i < todoList.length; i += 1) {
     const parsedDate = parse(todoList[i].dueDate, 'yyyy-MM-dd', new Date());
-    const date = format(parsedDate, 'MMMM d, yyyy');
+    const date = format(parsedDate, formatFilter);
     if (date === today) {
       createToDoDiv(todoList[i]);
     }
@@ -49,7 +53,7 @@ export default function displayTab() {
   const projectList = document.getElementById('project-list');
   projectList.addEventListener('click', (e) => {
     if ((typeof e.target) === (typeof document.createElement('a'))) {
-      displayToDo(e.target.innerHTML);
+      displayProjectToDo(e.target.innerHTML);
     }
   });
 
@@ -58,7 +62,11 @@ export default function displayTab() {
     if (e.target.innerHTML === 'Home') {
       displayAllToDos();
     } else if (e.target.innerHTML === 'Today') {
-      displayTodayToDos();
+      displayFilteredToDos('Today');
+    } else if (e.target.innerHTML === 'Week') {
+      displayFilteredToDos('Week');
+    } else if (e.target.innerHTML === 'Month') {
+      displayFilteredToDos('Month');
     }
   });
 }
