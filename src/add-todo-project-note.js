@@ -1,7 +1,6 @@
 import InitialForm from './create-initial-form-layout';
 import createToDoDiv from './add-todo';
 import createProjectLi from './add-project';
-import createNoteDiv from './add-note';
 import toDoInterface from './todo-interface';
 import displayTab from './displayToDo';
 
@@ -23,8 +22,8 @@ export default function addItem() {
           toDoInterface.addToDo(todo);
         } else if (form.id === 'project') {
           createProjectLi();
-          body.removeChild(formBox);
         }
+        body.removeChild(formBox);
       }
     });
   });
