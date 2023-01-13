@@ -1,6 +1,8 @@
 import populateInitialFormToDo from './todo-form-tab';
 import populateInitialFormProject from './project-form-tab';
 import createNoteDiv from './add-note';
+import Note from './note';
+import toDoInterface from './todo-interface';
 
 const InitialForm = (() => {
   function deleteFormBox() {
@@ -61,8 +63,10 @@ const InitialForm = (() => {
         } else if (e.target.innerHTML === 'Project') {
           populateFormMainContent('project');
         } else {
-          createNoteDiv();
+          const textArea = document.createElement('textArea');
+          toDoInterface.addNote(Note(textArea));
           deleteFormBox();
+          console.log(`Note masterlist: ${toDoInterface.noteMasterList}`);
         }
       });
 
