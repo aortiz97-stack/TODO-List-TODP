@@ -1,0 +1,369 @@
+@font-face {
+    font-family: Always-Forever;
+    src: url('./fonts/always\ forever.ttf');
+}
+
+#initial-form-box, .note {
+    box-shadow: 3.6px 7.2px 7.2px hsl(0deg 0% 0% / 0.39);
+}
+
+:root {
+    font-family: Verdana, sans-serif;
+    color: black;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#initial-form-box, #edit-form-box{
+    position: absolute;
+    left: 25vw;
+    top: 15vh;
+    height: 75vh;
+    width: 50vw;
+    background-color: white;
+    border: 1px black solid;
+    border-radius: 12px;
+
+}
+
+#initial-form-box, body {
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    grid-template-columns: 1fr 3fr;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.header {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    background-color: #C8A2C8;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 15px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.side-bar {
+    grid-row: 2 / -1;
+    grid-column: 1 / 2;
+    background-color: #E6E6FA;
+    border-bottom-left-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    color: white;
+}
+
+.side-bar > button {
+    width: 50px;
+    height: 50px;
+    margin-left: 40px;
+    margin-bottom: 25px;
+    border-radius: 100%;
+    font-size: 2rem;
+}
+
+ul li ul li {
+    display: flex;
+    gap: 2px;
+}
+
+
+li button, li div, li img {
+    visibility: hidden;
+}
+
+li:hover img, li:hover div, li:hover button {
+    visibility: visible;
+    width: 10%;
+    height: auto;
+}
+
+li:hover div, li:hover button {
+    width: 10%;
+    height: auto;
+    background-color: #E6E6FA;
+}
+
+li:hover button {
+    border-style: none;
+}
+
+li:hover img {
+    width: 1000%;
+    object-fit: contain;
+}
+
+
+
+.main-content {
+    grid-row: 2 / -1;
+    grid-column: 2 / -1;
+    background-color: white;
+    overflow: scroll;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.outer-content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    padding: 20px;
+    gap: 50px;
+}
+
+#initial-form-box .header, #edit-form-box .header {
+    position: relative;
+    font-size: 0.75rem;
+}
+
+.form, .edit.main-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+button#submit, button#edit-submit-button {
+    height: 30px;
+    width: 60px;
+    text-align: center;
+    justify-self: center;
+}
+
+#initial-form-box .header button, #edit-form-box .header button {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #C8A2C8;
+    border-style: none;
+}
+
+#initial-form-box .side-bar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.todo-object {
+    display: grid;
+    position: relative;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 10fr;
+    border-radius: 15px;
+    font-family: Always-Forever, Verdana, sans-serif;
+    color: black;
+    font-size: 2rem;
+    height: fit-content;
+}
+
+.todo-object.expanded {
+    grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
+    grid-template-columns: 0.5fr 10fr;
+    max-height: 6fr;
+}
+
+.priority-indicator {
+    grid-column: 1 / 2;
+    grid-row: 1 / -1;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.low-priority .priority-indicator {
+    background-color: #A2E4B8;
+}
+
+.medium-priority .priority-indicator {
+    background-color: #FDFD96;
+}
+
+.high-priority .priority-indicator {
+    background-color: #ff6961;
+}
+
+.completed .priority-indicator {
+    background-color: #CFCFC4;
+}
+
+.todo-object div {
+    padding: 5px;
+}
+
+.todo-title {
+    grid-column: 2 / -1;
+    grid-row: 1 / 2;
+    background-color: #E6E6FA;
+    border-top-right-radius: 15px;
+}
+
+.todo-due-date {
+    grid-column: 2 / -1;
+    grid-row: 2 / 3;
+    background-color: #E0ECF8;
+}
+
+.todo-priority {
+    grid-row: 3 / 4;
+    background-color: #E0ECF8;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom-right-radius: 15px;
+}
+
+.expanded .todo-priority {
+    border-bottom-right-radius: 0px;
+}
+
+.todo-description {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+    background-color: #E0ECF8;
+    margin-bottom: 0;
+}
+
+.todo-project {
+    visibility: hidden;
+    background-color: #E0ECF8;
+    width: 0;
+    height: 0;
+}
+
+.expanded .todo-project {
+    visibility: visible;
+    grid-row: 4 / 5;
+    background-color: #E0ECF8;
+    width: auto;
+    height: auto;
+}
+
+.expanded .todo-description {
+    visibility: visible;
+    width: auto;
+    height: auto;
+    max-height: 3fr;
+    grid-column: 2 / -1;
+    grid-row: 5 / -1;
+    background-color: #E0ECF8;
+    border-bottom-right-radius: 15px;
+    overflow: scroll;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.absolute {
+    position: absolute;
+    border-radius: 100%;
+    height: 25px;
+    width: 25px;
+    border-style: none;
+}
+
+.absolute.exit-button {
+    top: 0;
+    right: 0;
+    background-color: #E6E6FA;
+}
+
+
+.absolute button {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.absolute.edit-button {
+    bottom: 10px;
+    right: 40px;
+    background-color: #E0ECF8;
+}
+
+.absolute.edit-button.div, .absolute.expand-button.div{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.absolute img {
+    object-fit: contain;
+    max-width: 500%;
+}
+
+.absolute.expand-button {
+    bottom: 10px;
+    right: 10px;
+    background-color: #E0ECF8;
+}
+
+.absolute.todo-status {
+    bottom: 10px;
+    right: 100px;
+    display: flex;
+    gap: 5px;
+    height: auto;
+    text-align: center;
+    font-size: 1rem;
+}
+
+input[type = "checkbox"]{
+    margin: 0;
+}
+
+div.note {
+    position: relative;
+    background-color: #AEC6CF;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.note textarea {
+    width: 100%;
+    height: 100%;
+    background-color: #AEC6CF;
+    font-family: Always-Forever, Verdana, sans-serif;
+    border-style: none;
+}
+
+.note .exit-button {
+    background-color: #AEC6CF;
+}
