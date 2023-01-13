@@ -323,3 +323,23 @@ li:hover img {
 input[type = "checkbox"]{
     margin: 0;
 }
+
+div.note {
+    position: relative;
+    background-color: #AEC6CF;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.note textarea {
+    width: 100%;
+    height: 100%;
+    background-color: #AEC6CF;
+    font-family: Always-Forever, Verdana, sans-serif;
+    border-style: none;
+}
+
+.note .exit-button {
+    background-color: #AEC6CF;
+}

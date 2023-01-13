@@ -122,6 +122,14 @@ const toDoInterface = (() => {
     return project;
   };
 
+  const addNote = (newNote) => {
+    addObjectToMasterList('note', newNote);
+  };
+
+  const removeNote = (note) => {
+    removeObjectFromMasterList('note', note);
+  };
+
   return {
     toDoMasterList,
     projectMasterList,
@@ -131,6 +139,8 @@ const toDoInterface = (() => {
     addProject,
     removeProject,
     getProject,
+    addNote,
+    removeNote,
   };
 })();
 

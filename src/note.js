@@ -1,4 +1,4 @@
 export default function createNote() {
-  const Note = (title, details) => ({ title, details });
+  const Note = (details) => ({ details });
   return Note;
 }

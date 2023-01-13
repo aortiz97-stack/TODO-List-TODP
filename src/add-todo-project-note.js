@@ -1,6 +1,7 @@
 import InitialForm from './create-initial-form-layout';
 import createToDoDiv from './add-todo';
 import createProjectLi from './add-project';
+import createNoteDiv from './add-note';
 import toDoInterface from './todo-interface';
 import displayTab from './displayToDo';
 
@@ -15,15 +16,15 @@ export default function addItem() {
     body.appendChild(formBox);
 
     formBox.addEventListener('click', (e) => {
+      const form = document.querySelector('.form');
       if (e.target.innerHTML === 'Submit') {
-        const form = document.querySelector('.form');
         if (form.id === 'todo') {
           const todo = createToDoDiv();
           toDoInterface.addToDo(todo);
         } else if (form.id === 'project') {
           createProjectLi();
+          body.removeChild(formBox);
         }
-        body.removeChild(formBox);
       }
     });
   });

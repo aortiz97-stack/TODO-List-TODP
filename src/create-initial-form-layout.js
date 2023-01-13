@@ -1,5 +1,6 @@
 import populateInitialFormToDo from './todo-form-tab';
 import populateInitialFormProject from './project-form-tab';
+import createNoteDiv from './add-note';
 
 const InitialForm = (() => {
   function deleteFormBox() {
@@ -60,7 +61,8 @@ const InitialForm = (() => {
         } else if (e.target.innerHTML === 'Project') {
           populateFormMainContent('project');
         } else {
-          alert('Something else was clicked');
+          createNoteDiv();
+          deleteFormBox();
         }
       });
 

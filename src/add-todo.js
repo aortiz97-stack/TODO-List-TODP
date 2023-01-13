@@ -5,22 +5,26 @@ import ToDo from './todo';
 
 const body = document.querySelector('body');
 
-function addExitButton(toDoDiv, toDo) {
+export function addExitButton(objDiv, obj, type = 'todo') {
   const exitButton = document.createElement('button');
   exitButton.classList.add('absolute');
   exitButton.classList.add('exit-button');
   exitButton.innerHTML = 'x';
-  toDoDiv.append(exitButton);
+  objDiv.append(exitButton);
 
   const outerContentContainer = document.querySelector('.outer-content-container');
-  outerContentContainer.appendChild(toDoDiv);
+  outerContentContainer.appendChild(objDiv);
 
   const exitButtonList = document.querySelectorAll('.exit-button');
   const individualExitButton = exitButtonList[exitButtonList.length - 1];
 
   individualExitButton.addEventListener('click', () => {
-    outerContentContainer.removeChild(toDoDiv);
-    toDoInterface.removeToDo(toDo);
+    outerContentContainer.removeChild(objDiv);
+    if (type === 'todo') {
+      toDoInterface.removeToDo(obj);
+    } else if (type === 'note') {
+      toDoInterface.removeNote(obj);
+    }
   });
 }
 
