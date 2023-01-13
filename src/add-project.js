@@ -49,7 +49,8 @@ export default function createProjectLi() {
       } else {
         const toEditProject = toDoInterface.getProject(oldLinkName);
         toEditProject.projectName = link.innerHTML;
-        toEditProject.changeToDoProjectNames(link.innerHTML);
+        console.log(toEditProject.toDoList);
+        toDoInterface.addProject(toEditProject);
       }
     }
   });

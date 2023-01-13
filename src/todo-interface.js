@@ -94,6 +94,10 @@ const toDoInterface = (() => {
     removeToDoProject(toDo);
   };
 
+  const getToDo = (todoTitle) => {
+    let todoObj;
+  }
+
   const addProject = (newProject) => {
     addObjectToMasterList('project', newProject);
     const masterToDoList = getToDoMasterList();
