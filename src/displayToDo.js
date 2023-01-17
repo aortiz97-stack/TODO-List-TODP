@@ -1,35 +1,33 @@
 import { format, parse } from 'date-fns';
-import ToDoInterface from './todo-interface';
 import createToDoDiv from './add-todo';
-import toDoInterface from './todo-interface';
 import createNoteDivs from './add-note';
 
-function displayProjectToDo(projectName = '') {
-  const todoList = ToDoInterface.toDoMasterList;
+function displayProjectToDo(savedToDoInterface, projectName = '') {
+  const todoList = savedToDoInterface.toDoMasterList;
 
   const outerContentContainer = document.querySelector('.outer-content-container');
   outerContentContainer.innerHTML = '';
 
   for (let i = 0; i < todoList.length; i += 1) {
     if (todoList[i].projectName === projectName) {
-      createToDoDiv(todoList[i]);
+      createToDoDiv(savedToDoInterface, todoList[i]);
     }
   }
 }
 
-function displayAllToDos() {
-  const todoList = ToDoInterface.toDoMasterList;
+function displayAllToDos(savedToDoInterface) {
+  const todoList = savedToDoInterface.toDoMasterList;
 
   const outerContentContainer = document.querySelector('.outer-content-container');
   outerContentContainer.innerHTML = '';
 
   for (let i = 0; i < todoList.length; i += 1) {
-    createToDoDiv(todoList[i]);
+    createToDoDiv(savedToDoInterface, todoList[i]);
   }
 }
 
-function displayFilteredToDos(filter) {
-  const todoList = ToDoInterface.toDoMasterList;
+function displayFilteredToDos(filter, savedToDoInterface) {
+  const todoList = savedToDoInterface.toDoMasterList;
   const outerContentContainer = document.querySelector('.outer-content-container');
   outerContentContainer.innerHTML = '';
   let formatFilter;
@@ -46,31 +44,31 @@ function displayFilteredToDos(filter) {
     const parsedDate = parse(todoList[i].dueDate, 'yyyy-MM-dd', new Date());
     const date = format(parsedDate, formatFilter);
     if (date === today) {
-      createToDoDiv(todoList[i]);
+      createToDoDiv(savedToDoInterface, todoList[i]);
     }
   }
 }
 
-export default function displayTab() {
+export default function displayTab(savedToDoInterface) {
   const projectList = document.getElementById('project-list');
   projectList.addEventListener('click', (e) => {
     if ((typeof e.target) === (typeof document.createElement('a'))) {
-      displayProjectToDo(e.target.innerHTML);
+      displayProjectToDo(savedToDoInterface, e.target.innerHTML);
     }
   });
 
   const sideBar = document.querySelector('.side-bar');
   sideBar.addEventListener('click', (e) => {
     if (e.target.innerHTML === 'Home') {
-      displayAllToDos();
+      displayAllToDos(savedToDoInterface);
     } else if (e.target.innerHTML === 'Today') {
-      displayFilteredToDos('Today');
+      displayFilteredToDos('Today', savedToDoInterface);
     } else if (e.target.innerHTML === 'Week') {
-      displayFilteredToDos('Week');
+      displayFilteredToDos('Week', savedToDoInterface);
     } else if (e.target.innerHTML === 'Month') {
-      displayFilteredToDos('Month');
+      displayFilteredToDos('Month', savedToDoInterface);
     } else if (e.target.innerHTML === 'Notes') {
-      createNoteDivs();
+      createNoteDivs(savedToDoInterface);
     }
   });
 }

@@ -1,8 +1,7 @@
 import populateInitialFormToDo from './todo-form-tab';
 import populateInitialFormProject from './project-form-tab';
-import createNoteDivs from './add-note';
 import Note from './note';
-import toDoInterface from './todo-interface';
+import createNoteDivs from './add-note';
 
 const InitialForm = (() => {
   function deleteFormBox() {
@@ -10,7 +9,7 @@ const InitialForm = (() => {
     const body = document.querySelector('body');
     body.removeChild(formBox);
   }
-  const formContents = (formHeader, formSideBar, formMainContent) => {
+  const formContents = (formHeader, formSideBar, formMainContent, savedToDoInterface) => {
     function populateFormHeader() {
       const formTitle = document.createElement('h1');
       formTitle.innerHTML = 'Create a new...';
@@ -46,13 +45,17 @@ const InitialForm = (() => {
       for (let i = 0; i < sideBarNames.length; i += 1) {
         const li = document.createElement('li');
         const a = document.createElement('a');
-        if (sideBarNames[i] === 'To-Do') {
-          a.classList.add('current');
-        }
         a.innerHTML = sideBarNames[i];
         a.href = '#';
         li.appendChild(a);
         ul.appendChild(li);
+      }
+
+      function displayNotes() {
+        const textArea = document.createElement('textArea');
+        savedToDoInterface.addNote(Note(textArea));
+        createNoteDivs(savedToDoInterface);
+        deleteFormBox();
       }
 
       ul.addEventListener('click', (e) => {
@@ -63,11 +66,7 @@ const InitialForm = (() => {
         } else if (e.target.innerHTML === 'Project') {
           populateFormMainContent('project');
         } else {
-          const textArea = document.createElement('textArea');
-          toDoInterface.addNote(Note(textArea));
-          createNoteDivs();
-          deleteFormBox();
-          console.log(`Typeof masterlist: ${typeof (toDoInterface.noteMasterList[0]).details}`);
+          displayNotes();
         }
       });
 
@@ -82,7 +81,7 @@ const InitialForm = (() => {
     return { populatedFormHeader, populatedFormSideBar, populatedFormMainContent };
   };
 
-  function createFormLayout(formBox) {
+  function createFormLayout(formBox, savedToDoInterface) {
     const formHeader = document.createElement('div');
     formHeader.classList.add('header');
     const formSideBar = document.createElement('div');
@@ -90,7 +89,7 @@ const InitialForm = (() => {
     const formMainContent = document.createElement('div');
     formMainContent.classList.add('main-content');
 
-    const content = formContents(formHeader, formSideBar, formMainContent);
+    const content = formContents(formHeader, formSideBar, formMainContent, savedToDoInterface);
 
     formBox.appendChild(content.populatedFormHeader);
     formBox.appendChild(content.populatedFormSideBar);
@@ -99,7 +98,7 @@ const InitialForm = (() => {
     return formBox;
   }
 
-  return { createFormLayout };
+  return { createFormLayout, deleteFormBox };
 })();
 
 export default InitialForm;

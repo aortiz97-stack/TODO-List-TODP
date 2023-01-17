@@ -1,11 +1,10 @@
 import { format, parse } from 'date-fns';
-import toDoInterface from './todo-interface';
 import EditForm from './create-edit-form-layout';
 import ToDo from './todo';
 
 const body = document.querySelector('body');
 
-export function addExitButton(objDiv, obj, type = 'todo') {
+export function addExitButton(objDiv, obj, savedToDoInterface, type = 'todo') {
   const exitButton = document.createElement('button');
   exitButton.classList.add('absolute');
   exitButton.classList.add('exit-button');
@@ -21,9 +20,9 @@ export function addExitButton(objDiv, obj, type = 'todo') {
   individualExitButton.addEventListener('click', () => {
     outerContentContainer.removeChild(objDiv);
     if (type === 'todo') {
-      toDoInterface.removeToDo(obj);
+      savedToDoInterface.removeToDo(obj);
     } else if (type === 'note') {
-      toDoInterface.removeNote(obj);
+      savedToDoInterface.removeNote(obj);
     }
   });
 }
@@ -71,14 +70,14 @@ function addExpandButton(toDoDiv) {
   toDoDiv.appendChild(expandButton);
 }
 
-function addToDoButtons(toDoDiv, toDo) {
-  addExitButton(toDoDiv, toDo);
+function addToDoButtons(toDoDiv, toDo, savedToDoInterface) {
+  addExitButton(toDoDiv, toDo, savedToDoInterface);
   addEditButton(toDoDiv, toDo);
   addExpandButton(toDoDiv);
   return toDoDiv;
 }
 
-export default function createToDoDiv(todoParam = undefined) {
+export default function createToDoDiv(savedToDoInterface, todoParam = undefined) {
   let todo = todoParam;
   let title;
   let dueDate;
@@ -179,7 +178,7 @@ export default function createToDoDiv(todoParam = undefined) {
   todoDiv.appendChild(descriptionDiv);
   todoDiv.appendChild(statusDiv);
 
-  todoDiv = addToDoButtons(todoDiv, todo);
+  todoDiv = addToDoButtons(todoDiv, todo, savedToDoInterface);
 
   todoDiv.addEventListener('click', (e) => {
     if (e.target === statusCheckbox) {

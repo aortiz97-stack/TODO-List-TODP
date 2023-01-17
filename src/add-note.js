@@ -1,8 +1,7 @@
 import { addExitButton } from './add-todo';
-import toDoInterface from './todo-interface';
 
-export default function createNoteDivs() {
-  const { noteMasterList } = toDoInterface;
+export default function createNoteDivs(savedToDoInterface) {
+  const { noteMasterList } = savedToDoInterface;
   const outerContentContainer = document.querySelector('.outer-content-container');
   outerContentContainer.innerHTML = '';
 
@@ -11,7 +10,7 @@ export default function createNoteDivs() {
     noteDiv.appendChild(noteMasterList[i].details);
     noteDiv.classList.add('note');
 
-    addExitButton(noteDiv, noteMasterList[i], 'note');
+    addExitButton(noteDiv, noteMasterList[i], savedToDoInterface, 'note');
     outerContentContainer.appendChild(noteDiv);
   }
 }

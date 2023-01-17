@@ -1,4 +1,4 @@
-const toDoInterface = (() => {
+const toDoInterface = () => {
   let toDoMasterList = [];
   let projectMasterList = [];
   let noteMasterList = [];
@@ -142,6 +142,6 @@ const toDoInterface = (() => {
     addNote,
     removeNote,
   };
-})();
+};
 
 export default toDoInterface;

@@ -1,10 +1,9 @@
-import toDoInterface from './todo-interface';
 import Project from './project';
 
-export default function createProjectLi() {
+export default function createProjectLi(savedToDoInterface) {
   const projectName = document.querySelector('input#project-name').value;
   const project = Project(projectName);
-  toDoInterface.addProject(project);
+  savedToDoInterface.addProject(project);
 
   const projectList = document.querySelector('ul#project-list');
   const displayedProjectName = projectName.charAt(0).toUpperCase() + projectName.slice(1);
@@ -39,20 +38,20 @@ export default function createProjectLi() {
     const link = li.firstChild;
     if (e.target === trashIcon) {
       projectUl.removeChild(li);
-      const toDeleteProject = toDoInterface.getProject(link.innerHTML);
-      toDoInterface.removeProject(toDeleteProject);
+      const toDeleteProject = savedToDoInterface.getProject(link.innerHTML);
+      savedToDoInterface.removeProject(toDeleteProject);
     } else if (e.target === editIcon) {
       const oldLinkName = link.innerHTML;
       link.innerHTML = prompt(`Enter the new name for ${oldLinkName}.`);
       if (link.innerHTML === '') {
         link.innerHTML = oldLinkName;
       } else {
-        const toEditProject = toDoInterface.getProject(oldLinkName);
+        const toEditProject = savedToDoInterface.getProject(oldLinkName);
         toEditProject.projectName = link.innerHTML;
         toEditProject.changeToDoProjectNames(link.innerHTML);
 
-        for (let i = 0; i < toDoInterface.toDoMasterList.length; i += 1) {
-          const todo = toDoInterface.toDoMasterList[i];
+        for (let i = 0; i < savedToDoInterface.toDoMasterList.length; i += 1) {
+          const todo = savedToDoInterface.toDoMasterList[i];
           if (todo.projectName === oldLinkName) {
             todo.projectName = link.innerHTML;
           }
