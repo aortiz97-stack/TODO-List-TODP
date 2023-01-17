@@ -6,6 +6,11 @@ import displayTab from './displayToDo';
 
 const body = document.querySelector('body');
 
+function saveInterface(savedToDoInterface) {
+  window.localStorage.setItem('savedToDoInterface', JSON.stringify(savedToDoInterface));
+  return null;
+}
+
 function addItem(savedToDoInterface = toDoInterface()) {
   const addButton = document.querySelector('div.side-bar button');
   addButton.addEventListener('click', () => {
@@ -28,7 +33,8 @@ function addItem(savedToDoInterface = toDoInterface()) {
     });
   });
   displayTab(savedToDoInterface);
-  return savedToDoInterface;
+
+  window.onbeforeunload = saveInterface(savedToDoInterface);
 }
 
 export default addItem;
