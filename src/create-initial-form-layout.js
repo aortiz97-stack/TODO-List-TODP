@@ -84,9 +84,8 @@ const InitialForm = (() => {
 
   function createFormLayout(formBox) {
     const formHeader = document.createElement('header');
-    const formSideBar = document.createElement('div');
-    formSideBar.classList.add('side-bar');
-    const formMainContent = document.createElement('div');
+    const formSideBar = document.createElement('aside');
+    const formMainContent = document.createElement('main');
     formMainContent.classList.add('main-content');
 
     const content = formContents(formHeader, formSideBar, formMainContent);

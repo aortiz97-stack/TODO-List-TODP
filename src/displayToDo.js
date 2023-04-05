@@ -58,7 +58,7 @@ export default function displayTab() {
     }
   });
 
-  const sideBar = document.querySelector('.side-bar');
+  const sideBar = document.querySelector('aside');
   sideBar.addEventListener('click', (e) => {
     if (e.target.innerHTML === 'Home') {
       displayAllToDos();

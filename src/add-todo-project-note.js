@@ -7,7 +7,7 @@ import displayTab from './displayToDo';
 const body = document.querySelector('body');
 
 export default function addItem() {
-  const addButton = document.querySelector('div.side-bar button');
+  const addButton = document.querySelector('aside button');
   addButton.addEventListener('click', () => {
     let formBox = document.createElement('div');
     formBox.id = 'initial-form-box';
