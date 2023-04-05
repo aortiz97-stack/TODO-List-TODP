@@ -221,7 +221,7 @@ aside h2 {
     border-radius: 15px;
     font-family: Always-Forever, Verdana, sans-serif;
     color: black;
-    /*font-size: 2rem;*/
+    font-size: 2rem;
     height: fit-content;
 }
 
@@ -384,16 +384,21 @@ div.note {
     position: relative;
     background-color: #AEC6CF;
     padding: 10px;
+    font-size: 2.5rem;
+    font-family: Always-Forever, Verdana, sans-serif;
     width: fit-content;
     height: fit-content;
 }
 
 .note textarea {
+    font-size: 2.5rem;
+    font-weight: bold;
     width: 100%;
     height: 100%;
     background-color: #AEC6CF;
     font-family: Always-Forever, Verdana, sans-serif;
     border-style: none;
+    line-height: 1.5;
 }
 
 .note .exit-button {
