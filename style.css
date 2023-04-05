@@ -44,7 +44,7 @@ body {
     margin: 0;
 }
 
-.header {
+header {
     grid-row: 1 / 2;
     grid-column: 1 / -1;
     background-color: #C8A2C8;
@@ -69,6 +69,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 20px;
 }
 
 ul {
@@ -90,7 +91,7 @@ a:active {
     margin-left: 40px;
     margin-bottom: 25px;
     border-radius: 100%;
-    font-size: 2rem;
+    /*font-size: 2rem;*/
 }
 
 ul li ul li {
@@ -143,9 +144,9 @@ li:hover img {
     gap: 50px;
 }
 
-#initial-form-box .header, #edit-form-box .header {
+#initial-form-box header, #edit-form-box header {
     position: relative;
-    font-size: 0.75rem;
+    /*font-size: 0.75rem;*/
 }
 
 .form, .edit.main-content {
@@ -163,7 +164,7 @@ button#submit, button#edit-submit-button {
     justify-self: center;
 }
 
-#initial-form-box .header button, #edit-form-box .header button {
+#initial-form-box header button, #edit-form-box header button {
     width: 20px;
     height: 20px;
     border-radius: 100%;
@@ -189,7 +190,7 @@ button#submit, button#edit-submit-button {
     border-radius: 15px;
     font-family: Always-Forever, Verdana, sans-serif;
     color: black;
-    font-size: 2rem;
+    /*font-size: 2rem;*/
     height: fit-content;
 }
 
@@ -341,7 +342,7 @@ button#submit, button#edit-submit-button {
     gap: 5px;
     height: auto;
     text-align: center;
-    font-size: 1rem;
+    /*font-size: 1rem;*/
 }
 
 input[type = "checkbox"]{
