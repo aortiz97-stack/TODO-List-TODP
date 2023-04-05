@@ -157,8 +157,8 @@ li:hover img {
 
 .outer-content-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(auto-fill, 1fr);
+    /*grid-template-columns: 1fr 1fr;*/
+    /*grid-template-rows: repeat(auto-fill, 1fr);*/
     padding: 20px;
     gap: 50px;
 }
@@ -222,13 +222,13 @@ aside h2 {
     font-family: Always-Forever, Verdana, sans-serif;
     color: black;
     font-size: 2rem;
-    height: fit-content;
+    /*height: fit-content;*/
 }
 
 .todo-object.expanded {
     grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
     grid-template-columns: 0.5fr 10fr;
-    max-height: 6fr;
+    /*max-height: 6fr;*/
 }
 
 .priority-indicator {
@@ -277,6 +277,7 @@ aside h2 {
     padding-top: 5px;
     padding-bottom: 5px;
     border-bottom-right-radius: 15px;
+    max-width: 100%;
 }
 
 .expanded .todo-priority {
@@ -284,7 +285,8 @@ aside h2 {
 }
 
 .todo-description {
-    visibility: hidden;
+    /*visibility: hidden;*/
+    display: none;
     height: 0;
     width: 0;
     background-color: #E0ECF8;
@@ -292,14 +294,16 @@ aside h2 {
 }
 
 .todo-project {
-    visibility: hidden;
+    /*visibility: hidden;*/
+    display: none;
     background-color: #E0ECF8;
     width: 0;
     height: 0;
 }
 
 .expanded .todo-project {
-    visibility: visible;
+    /*visibility: visible;*/
+    display: block;
     grid-row: 4 / 5;
     background-color: #E0ECF8;
     width: auto;
@@ -307,7 +311,8 @@ aside h2 {
 }
 
 .expanded .todo-description {
-    visibility: visible;
+    display: block;
+    /*visibility: visible;*/
     width: auto;
     height: auto;
     max-height: 3fr;
