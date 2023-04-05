@@ -9,6 +9,13 @@ const InitialForm = (() => {
     const formBox = document.querySelector('div#initial-form-box');
     const body = document.querySelector('body');
     body.removeChild(formBox);
+
+    const aside = document.querySelector('aside');
+    const header = document.querySelector('header');
+    const main = document.querySelector('main');
+    aside.style.filter = 'brightness(100%)';
+    header.style.filter = 'brightness(100%)';
+    main.style.filter = 'brightness(100%)';
   }
   const formContents = (formHeader, formSideBar, formMainContent) => {
     function populateFormHeader() {
