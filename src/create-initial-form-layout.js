@@ -17,6 +17,14 @@ const InitialForm = (() => {
     header.style.filter = 'brightness(100%)';
     main.style.filter = 'brightness(100%)';
   }
+  const clickedOutsideFormBox = (e) => {
+    const formBox = document.querySelector('div#initial-form-box');
+    const plusButton = document.querySelector('aside button');
+    console.log((e.target));
+    if (formBox !== null && !formBox.contains(e.target) && e.target !== plusButton) {
+      deleteFormBox();
+    }
+  };
   const formContents = (formHeader, formSideBar, formMainContent) => {
     function populateFormHeader() {
       const formTitle = document.createElement('h1');
@@ -74,7 +82,6 @@ const InitialForm = (() => {
           toDoInterface.addNote(Note(textArea));
           createNoteDivs();
           deleteFormBox();
-          console.log(`Typeof masterlist: ${typeof (toDoInterface.noteMasterList[0]).details}`);
         }
       });
 
@@ -104,7 +111,7 @@ const InitialForm = (() => {
     return formBox;
   }
 
-  return { createFormLayout };
+  return { createFormLayout, clickedOutsideFormBox };
 })();
 
 export default InitialForm;

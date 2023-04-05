@@ -5,6 +5,7 @@ import toDoInterface from './todo-interface';
 import displayTab from './displayToDo';
 
 const body = document.querySelector('body');
+body.addEventListener('click', (e) => InitialForm.clickedOutsideFormBox(e));
 
 const dimBackground = () => {
   const aside = document.querySelector('aside');
