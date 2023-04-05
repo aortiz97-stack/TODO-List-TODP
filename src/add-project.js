@@ -34,7 +34,17 @@ export default function createProjectLi() {
   editIconDiv.appendChild(editIcon);
   editButton.appendChild(editIconDiv);
 
+  li.appendChild(trashButton);
+  li.appendChild(editButton);
+
   li.addEventListener('click', (e) => {
+    const buttons = Array.from(li.querySelectorAll('button'));
+    if (buttons[0].style.visibility === 'hidden') {
+      buttons.forEach((button) => { button.style.visibility = 'visible'; });
+    } else {
+      buttons.forEach((button) => { button.style.visibility = 'hidden'; });
+    }
+
     const projectUl = document.querySelector('#project-list');
     const link = li.firstChild;
     if (e.target === trashIcon) {
@@ -60,9 +70,6 @@ export default function createProjectLi() {
       }
     }
   });
-
-  li.appendChild(trashButton);
-  li.appendChild(editButton);
 
   projectList.appendChild(li);
 }

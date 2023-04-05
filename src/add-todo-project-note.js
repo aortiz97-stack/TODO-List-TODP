@@ -11,7 +11,6 @@ const dimBackground = () => {
   const aside = document.querySelector('aside');
   const header = document.querySelector('header');
   const main = document.querySelector('main');
-  console.log(`is it true ${(JSON.stringify(aside.style))}`);
 
   aside.style.filter = 'brightness(25%)';
   header.style.filter = 'brightness(25%)';
@@ -36,7 +35,7 @@ export default function addItem() {
         } else if (form.id === 'project') {
           createProjectLi();
         }
-        body.removeChild(formBox);
+        InitialForm.deleteFormBox();
       }
     });
   });

@@ -6,7 +6,8 @@ import toDoInterface from './todo-interface';
 
 const InitialForm = (() => {
   function deleteFormBox() {
-    const formBox = document.querySelector('div#initial-form-box');
+    const formBox = document.querySelector('#initial-form-box');
+    console.log(`formBOOXXX ${formBox}`);
     const body = document.querySelector('body');
     body.removeChild(formBox);
 
@@ -19,8 +20,7 @@ const InitialForm = (() => {
   }
   const clickedOutsideFormBox = (e) => {
     const formBox = document.querySelector('div#initial-form-box');
-    const plusButton = document.querySelector('aside button');
-    console.log((e.target));
+    const plusButton = document.querySelector('#add-item-button');
     if (formBox !== null && !formBox.contains(e.target) && e.target !== plusButton) {
       deleteFormBox();
     }
@@ -111,7 +111,7 @@ const InitialForm = (() => {
     return formBox;
   }
 
-  return { createFormLayout, clickedOutsideFormBox };
+  return { createFormLayout, clickedOutsideFormBox, deleteFormBox };
 })();
 
 export default InitialForm;
