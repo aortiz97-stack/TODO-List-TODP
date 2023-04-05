@@ -24,8 +24,8 @@ button:hover {
     position: absolute;
     left: 25vw;
     top: 15vh;
-    height: 75vh;
-    width: 50vw;
+    /*height: 75vh;
+    width: 50vw;*/
     background-color: white;
     border: 1px black solid;
     border-radius: 12px;
@@ -69,7 +69,8 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
+    padding: 35px;
+    max-width: 33%;
 }
 
 ul {
@@ -88,10 +89,10 @@ a:active {
 aside > button {
     width: 50px;
     height: 50px;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
     margin-bottom: 25px;
     border-radius: 100%;
-    /*font-size: 2rem;*/
+    font-size: 2rem;
 }
 
 ul li ul li {
@@ -174,6 +175,14 @@ button#submit, button#edit-submit-button {
     top: 0;
     background-color: #C8A2C8;
     border-style: none;
+}
+
+aside ul {
+    padding-left: 0;
+}
+
+aside h2 {
+    font-size: 1rem;
 }
 
 #initial-form-box aside ul {
