@@ -61,7 +61,7 @@ h1 {
     text-align: center;
 }
 
-.side-bar {
+aside {
     grid-row: 2 / -1;
     grid-column: 1 / 2;
     background-color: #E6E6FA;
@@ -85,7 +85,7 @@ a:active {
     color: white;
 }
 
-.side-bar > button {
+aside > button {
     width: 50px;
     height: 50px;
     margin-left: 40px;
@@ -176,7 +176,7 @@ button#submit, button#edit-submit-button {
     border-style: none;
 }
 
-#initial-form-box .side-bar ul {
+#initial-form-box aside ul {
     display: flex;
     flex-direction: column;
     gap: 20px;
