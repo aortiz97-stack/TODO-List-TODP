@@ -15,24 +15,26 @@ export default function createProjectLi() {
   a.innerHTML = displayedProjectName;
   li.appendChild(a);
 
-  const trashIconDiv = document.createElement('div');
+  //const trashIconDiv = document.createElement('div');
   const trashButton = document.createElement('button');
   const trashIcon = document.createElement('img');
   trashIcon.src = '../src/images/trash-icon.png';
   trashIcon.alt = 'Trash icon';
   trashIcon.id = 'trash-project-icon';
   trashIcon.classList.add('project-trash-icon');
-  trashIconDiv.appendChild(trashIcon);
-  trashButton.appendChild(trashIconDiv);
+  //trashIconDiv.appendChild(trashIcon);
+  //trashButton.appendChild(trashIconDiv);
+  trashButton.appendChild(trashIcon);
 
-  const editIconDiv = document.createElement('div');
+  //const editIconDiv = document.createElement('div');
   const editButton = document.createElement('button');
   const editIcon = document.createElement('img');
   editIcon.src = '../src/images/edit-icon.png';
   editIcon.alt = 'Edit icon';
   editIcon.classList.add('project-edit-icon');
-  editIconDiv.appendChild(editIcon);
-  editButton.appendChild(editIconDiv);
+  //editIconDiv.appendChild(editIcon);
+  //editButton.appendChild(editIconDiv);
+  editButton.appendChild(editIcon);
 
   li.appendChild(trashButton);
   li.appendChild(editButton);
