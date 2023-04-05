@@ -102,11 +102,25 @@ aside > button {
 ul li ul li {
     display: flex;
     gap: 2px;
+    max-width: 100%;
+    justify-content: space-evenly;
 }
 
 
 li button {
     visibility: hidden;
+    /*max-width: 25%;*/
+    border-style: none;
+    background-color: #E6E6FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li img {
+    object-fit: contain;
+    max-width: 300%;
+    /*max-width: 1000%;*/
 }
 
 /*li:hover img, li:hover div, li:hover button {
@@ -237,7 +251,7 @@ aside h2 {
 }
 
 .completed .priority-indicator {
-    background-color: #CFCFC4;
+    background-color: #1D1C1A;
 }
 
 .todo-object div {
