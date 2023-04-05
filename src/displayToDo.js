@@ -1,7 +1,6 @@
 import { format, parse } from 'date-fns';
 import ToDoInterface from './todo-interface';
 import createToDoDiv from './add-todo';
-import toDoInterface from './todo-interface';
 import createNoteDivs from './add-note';
 
 function displayProjectToDo(projectName = '') {

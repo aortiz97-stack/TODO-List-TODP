@@ -83,8 +83,7 @@ const InitialForm = (() => {
   };
 
   function createFormLayout(formBox) {
-    const formHeader = document.createElement('div');
-    formHeader.classList.add('header');
+    const formHeader = document.createElement('header');
     const formSideBar = document.createElement('div');
     formSideBar.classList.add('side-bar');
     const formMainContent = document.createElement('div');

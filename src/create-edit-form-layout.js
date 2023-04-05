@@ -150,9 +150,8 @@ const EditForm = (() => {
     return { populatedFormHeader, populatedFormMainContent };
   };
   function createFormLayout(formBox, todoDiv, todo) {
-    const formHeader = document.createElement('div');
+    const formHeader = document.createElement('header');
     formHeader.classList.add('edit');
-    formHeader.classList.add('header');
 
     const formMainContent = document.createElement('div');
     formMainContent.classList.add('edit');
