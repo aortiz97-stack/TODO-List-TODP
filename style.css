@@ -105,17 +105,17 @@ ul li ul li {
 }
 
 
-li button, li div, li img {
+li button {
     visibility: hidden;
 }
 
-li:hover img, li:hover div, li:hover button {
+/*li:hover img, li:hover div, li:hover button {
     visibility: visible;
     width: 10%;
     height: auto;
-}
+}*/
 
-li:hover div, li:hover button {
+/*li:hover div, li:hover button {
     width: 10%;
     height: auto;
     background-color: #E6E6FA;
@@ -128,7 +128,7 @@ li:hover button {
 li:hover img {
     width: 1000%;
     object-fit: contain;
-}
+}*/
 
 
 
