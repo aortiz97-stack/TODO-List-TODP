@@ -24,12 +24,7 @@ button:hover {
     position: absolute;
     left: 25vw;
     top: 15vh;
-    /*top: 50%;
-    left: 50%;*/
-    /*transform: translate(-50%, -50%);*/
     max-height: 75%;
-    /*height: 75vh;
-    width: 50vw;*/
     background-color: white;
     border: 1px black solid;
     border-radius: 12px;
@@ -74,7 +69,6 @@ aside {
     flex-direction: column;
     justify-content: space-between;
     padding: 35px;
-    /*max-width: 33%;*/
 }
 
 ul {
@@ -93,7 +87,6 @@ a:active {
 aside > button {
     width: 50px;
     height: 50px;
-    /*margin-left: 40px;*/
     margin-bottom: 25px;
     border-radius: 100%;
     font-size: 2rem;
@@ -103,13 +96,11 @@ ul li ul li {
     display: flex;
     gap: 2px;
     max-width: 100%;
-    /*justify-content: space-evenly;*/
 }
 
 
 li button {
     visibility: hidden;
-    /*max-width: 25%;*/
     border-style: none;
     background-color: #E6E6FA;
     display: flex;
@@ -120,31 +111,7 @@ li button {
 li img {
     object-fit: contain;
     max-width: 300%;
-    /*max-width: 1000%;*/
 }
-
-/*li:hover img, li:hover div, li:hover button {
-    visibility: visible;
-    width: 10%;
-    height: auto;
-}*/
-
-/*li:hover div, li:hover button {
-    width: 10%;
-    height: auto;
-    background-color: #E6E6FA;
-}
-
-li:hover button {
-    border-style: none;
-}
-
-li:hover img {
-    width: 1000%;
-    object-fit: contain;
-}*/
-
-
 
 .main-content {
     grid-row: 2 / -1;
@@ -158,15 +125,12 @@ li:hover img {
 .outer-content-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    /*grid-template-columns: 1fr 1fr;*/
-    /*grid-template-rows: repeat(auto-fill, 1fr);*/
     padding: 20px;
     gap: 50px;
 }
 
 #initial-form-box header, #edit-form-box header {
     position: relative;
-    /*font-size: 0.75rem;*/
 }
 
 .form, .edit.main-content {
@@ -223,14 +187,11 @@ aside h2 {
     font-family: Always-Forever, Verdana, sans-serif;
     color: black;
     font-size: 2rem;
-    /*padding: 15px;*/
-    /*height: fit-content;*/
 }
 
 .todo-object.expanded {
     grid-template-rows: 1fr 1fr 1fr 1fr 2fr;
     grid-template-columns: 0.5fr 10fr;
-    /*max-height: 6fr;*/
 }
 
 .priority-indicator {
@@ -291,36 +252,24 @@ aside h2 {
 }
 
 .todo-description {
-    /*visibility: hidden;*/
     display: none;
-    /*height: 0;
-    width: 0;*/
     background-color: #E0ECF8;
     margin-bottom: 0;
 }
 
 .todo-project {
-    /*visibility: hidden;*/
     display: none;
     background-color: #E0ECF8;
-    /*width: 0;
-    height: 0;*/
 }
 
 .expanded .todo-project {
-    /*visibility: visible;*/
     display: block;
     grid-row: 4 / 5;
     background-color: #E0ECF8;
-    /*width: auto;
-    height: auto;*/
 }
 
 .expanded .todo-description {
     display: block;
-    /*visibility: visible;*/
-    /*width: auto;
-    height: auto;*/
     max-height: 3fr;
     grid-column: 2 / -1;
     grid-row: 5 / -1;
@@ -335,8 +284,6 @@ aside h2 {
 .absolute {
     position: absolute;
     border-radius: 100%;
-    /*height: 25px;
-    width: 25px;*/
     max-width: 25px;
     border-style: none;
 }

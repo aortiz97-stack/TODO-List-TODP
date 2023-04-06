@@ -164,7 +164,6 @@ export default function createToDoDiv(todoParam = undefined) {
 
   const statusLabel = document.createElement('label');
   statusLabel.for = 'status-input';
-  /*statusLabel.innerHTML = 'Completed';*/
 
   statusDiv.appendChild(statusCheckbox);
   statusDiv.appendChild(statusLabel);
