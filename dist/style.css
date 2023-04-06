@@ -103,7 +103,7 @@ ul li ul li {
     display: flex;
     gap: 2px;
     max-width: 100%;
-    justify-content: space-evenly;
+    /*justify-content: space-evenly;*/
 }
 
 
